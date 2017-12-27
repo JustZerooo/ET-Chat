@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+	<title>ET-Chat v3.0.7</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+  <script src="js/prototype.js" type="text/javascript"></script>
+  <script src="js/scriptaculous.js" type="text/javascript"></script>
+  <script src="js/chat.js" type="text/javascript"></script>
+  <script src="./?MessagesForJs" type="text/javascript"></script>
+  <script type="text/javascript" src="js/soundmanager2-nodebug-jsmin.js"></script>
+  <link href="styles/<?php echo $_SESSION['etchat_'.$this->_prefix.'style']; ?>/style.css" rel="stylesheet" type="text/css"/>
+
+<!-- window.js Class zum erzeugen der Fenster -->
+<!-- info http://prototype-window.xilinus.com -->
+<script type="text/javascript" src="js/window.js"></script>
+<link href="styles/default_2create_win.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript">
+
+var chatObj;
+
+soundManager.url = 'sound/swf/'; // path to directory containing SoundManager2 .SWF file
+soundManager.debugMode = false;
+
+window.onload = function() {
+	chatObj = new ET_Chat();
+	chatObj.messages_im_chat=<?php echo $_SESSION['etchat_'.$this->_prefix.'anz_messages_im_chat']; ?>;
+	chatObj.reload_interval=<?php echo $_SESSION['etchat_'.$this->_prefix.'config_reloadsequenz']; ?>;
+	chatObj.username='<?php echo $_SESSION['etchat_'.$this->_prefix.'username']; ?>';
+	chatObj.user_id='<?php echo $_SESSION['etchat_'.$this->_prefix.'user_id']; ?>';
+	chatObj.userPrivilegienGlobal='<?php echo $_SESSION['etchat_'.$this->_prefix.'user_priv']; ?>';
+	chatObj.win_style='<?php echo $_SESSION['etchat_'.$this->_prefix.'style']; ?>';
+	chatObj.anbindung_an_userverwaltung=<?php echo (!empty($_SESSION['etchat_'.$this->_prefix.'logout_url'])) ? "true" : "false"; ?>;
+	chatObj.show_history_all_user=<?php echo ($this->_show_history_all_user) ? "true" : "false"; ?>; 
+	chatObj.allowed_privates_in_chat_win=<?php echo ($this->_allowed_privates_in_chat_win) ? "true" : "false"; ?>; 
+	chatObj.allowed_privates_in_separate_win=<?php echo ($this->_allowed_privates_in_separate_win) ? "true" : "false"; ?>; 
+	chatObj.interval_for_inactivity=<?php echo $this->_interval_for_inactivity; ?>;
+	chatObj.set_dynamic_height=true; // sonst hat das ganze Chat eine feste Hoehe
+	chatObj.allow_nick_registration=<?php echo ($this->_allow_nick_registration) ? "true" : "false"; ?>;
+	chatObj.textcolor='<?php echo $_SESSION['etchat_'.$this->_prefix.'textcolor']; ?>';
+	chatObj.soundManager = soundManager;
+	chatObj.sound_status = '<?php echo $this->_messages_sound; ?>';
+	chatObj.set_sys_messages = <?php echo ($_SESSION['etchat_'.$this->_prefix.'sys_messages']) ? "true" : "false"; ?>; 
+	chatObj.random_user_number = <?php echo $_SESSION['etchat_'.$this->_prefix.'random_user_number']; ?>;
+	chatObj.start();
+	setTimeout("chatObj.userOnline()", 1000);
+	if ( Prototype.Browser.IE ) 
+		$("splitpane").onmousedown = function(){ chatObj.dragSplitpane(); }
+	else 
+		chatObj.dragSplitpane();
+}
+
+</script>
+</head>
+<body id="body_id">
+<div id="rahmen_um_alles">
+<div id="kopf">ET - Chat v3.0.7 by &lt;<a href="http://www.sedesign.de" target="_blank">SEDesign</a> /&gt; &copy; <?php echo date('Y'); ?> (<?php echo $this->lang->hallo_user[0]->tagData; ?> <b><?php echo $_SESSION['etchat_'.$this->_prefix.'username']; ?></b>!)</div>
+<div id="onlinelist"><img src="img/ajax-loader.gif" alt="" /></div>
+<div id="splitpane"></div>
+<div id="chatinhalt"></div>
+
+<div id="form">
+<form id="message_form" style="display:inline;" action="">
+
+<div id="form_left">
+
+<div id="privat_anzeige"><?php echo $this->lang->privat_anzeige[0]->tagData; ?></div>
+
+<input type="hidden" name="room" id="room" value="1" />
+<input type="hidden" name="privat" id="privat" value="" />
+<input type="hidden" name="bold" id="bold" value="normal" />
+<input type="hidden" name="italic" id="italic" value="normal" />
+<input type="hidden" name="color" id="color" value="#<?php echo $_SESSION['etchat_'.$this->_prefix.'textcolor']; ?>" />
+
+<input name="message" id="message" type="text" class="input" style="width:400px;" />
+</div>
+<div id="form_right">
+<img id="link_sagen" class="img_button" src="img/Checked.png" width="32" height="32" border="0" alt="<?php echo $this->lang->sagen[0]->tagData; ?>" title="<?php echo $this->lang->sagen[0]->tagData; ?>" />&nbsp;&nbsp;&nbsp;
+<img id="link_smileys" class="img_button" src="img/Smiley_Cool.png" width="32" height="32" border="0" alt="<?php echo $this->lang->smileys[0]->tagData; ?>" title="<?php echo $this->lang->smileys[0]->tagData; ?>" />&nbsp;&nbsp;&nbsp;
+<img id="link_color" class="img_button" src="img/Colors.png" width="32" height="32" border="0" alt="<?php echo $this->lang->color[0]->tagData; ?>" title="<?php echo $this->lang->color[0]->tagData; ?>" />&nbsp;&nbsp;&nbsp;
+<img id="link_prop" class="img_button" src="img/Display.png" width="32" height="32" border="0" alt="<?php echo $this->lang->prop[0]->tagData; ?>" title="<?php echo $this->lang->prop[0]->tagData; ?>" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img id="link_logout" class="img_button" src="img/Delete_big.png" width="32" height="32" border="0" alt="<?php echo $this->lang->logout[0]->tagData; ?>" title="<?php echo $this->lang->logout[0]->tagData; ?>" />
+</div>
+</form>
+</div>
+
+</div>
+</body>
+</html>

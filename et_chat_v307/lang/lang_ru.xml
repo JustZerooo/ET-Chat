@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<content lang="русский" version="3070">
+	<chat_js>
+		<start_prop_link>Очистить экран</start_prop_link>
+		<start_prop_link>История сообщений</start_prop_link>
+		<start_prop_link>Звук при сообщ.:</start_prop_link> 
+		<start_prop_link>вкл. все</start_prop_link>
+		<start_prop_link>выкл.</start_prop_link>
+		<start_prop_link>Изменить пароль</start_prop_link> 
+		<start_prop_link>Новый пароль:</start_prop_link>
+		<start_prop_link>вкл. приват</start_prop_link> <!--Sound status-->
+		<start_prop_link>показывать системные сообщения</start_prop_link>
+		<start_prop_link>Убрать пароль с имени</start_prop_link> 
+		<start_prop_register>
+			<start_prop_link>Забронировать Чат-имя</start_prop_link> 
+			<title>Забронировать</title>
+			<pw1>Пароль:</pw1>
+			<pw2>Повтор пароля:</pw2>
+			<button_register>Забронировать</button_register>
+			<button_cancel>Отмена</button_cancel>
+			<befor_registering>Задав пароль, Вы можете забронировать Чат-имя навсегда.</befor_registering>
+			<after_registering>Благодарим Вас за регистрацию. Когда вы заново войдёте в чат, вам будет предложено ввести пароль.</after_registering>
+			<after_registering_link>Покинуть чат</after_registering_link>
+			<error>Пароли не совпадают! Пожалуйста, исправьте.</error>
+		</start_prop_register>
+		<remove_pw_win>
+			<title>Убрать пароль с имени:</title>
+			<text>Чтобы убрать пароль с имени, введите актуальный пароль для подтверждения процедуры.</text>
+			<text>Внимание!</text>
+			<text>После подтверждения вы автоматически покинете чат.</text>
+			<button>Убрать пароль с имени</button>
+		</remove_pw_win>
+		<warning_user_away_1>
+			<warning>Внимание!</warning>
+			<warning>Пользователь не находится в списке активных участников чата. Либо оппонент только что зашел в чат, либо уже покинул его.</warning>
+		</warning_user_away_1>
+		<warning_user_away_2>
+			<warning>Внимание!</warning>
+			<warning>Пользователь уже покинул чат.</warning>
+		</warning_user_away_2>
+		<start>всем в этой комнате:</start>
+		<ajaxreadrequest>Ты черезчур долго бездейственнен. Покиниш чат автоматически через 30 секунд...</ajaxreadrequest>
+		<receiveresultjson>для</receiveresultjson>
+		<receiveresultjson>приват</receiveresultjson>
+		<receiveresultjson_priv>в чат</receiveresultjson_priv>
+		<receiveresultjson_priv>отдельное окно</receiveresultjson_priv>
+		<receiveresultjson_priv>Ответить в этом окне</receiveresultjson_priv>
+		<send>Отсылаю...</send>
+		<historywindow>История сообщений</historywindow>
+		<updateuseronlineanzeige>Комнаты и пользователи</updateuseronlineanzeige>
+		<updateuseronlineanzeige>Всего в чате:</updateuseronlineanzeige>
+		<updateuseronlineanzeige>Перенять имя в строку сообщений</updateuseronlineanzeige>
+		<statuslink>Статус</statuslink>
+		<title_alert>Новые сообщения</title_alert>
+		<status imagename="status_online" rights="all">в онлайне</status> 
+		<status imagename="status_invisible" rights="admin">невидимка</status> 
+		<status imagename="status_busy" rights="all">занят</status> 
+		<status imagename="status_away" rights="all">ушел</status> 
+		<status imagename="status_smil" rights="all">оxотно поболтаю</status> 
+		<status imagename="status_controller" rights="all">играю</status> 
+		<status imagename="status_telephone" rights="all">болтаю по телефону</status> 
+		<status imagename="status_heart" rights="all">в любви...</status> 
+		<changeuserevent>
+			<privat>Приват для</privat>
+			<privat>Отменить приват</privat>
+			<room>вxодит в комнату</room>
+			<infoblock>Пользователю:</infoblock>
+			
+			<infoblock>Имя в строку сообщений</infoblock>
+			<infoblock>Приватное сообщение в чате</infoblock>
+			<infoblock>Приватный чат в отдельном окне</infoblock>
+			
+			<infoblock>Блокировать сообщения</infoblock>
+			<infoblock>все</infoblock>
+			<infoblock>только приватные</infoblock>
+			<adminu>Выкинуть пользователя из чата занеся его IP в черный список?</adminu>
+			<adminu>исполнить!</adminu>
+			<adminu>в статусе</adminu>
+			<adminu>и поэтому не может быть занесён в BlackList.</adminu>
+			<adminu_opt>кротко выкинуть</adminu_opt>
+			<adminu_opt>10 минут</adminu_opt>
+			<adminu_opt>30 минут</adminu_opt>
+			<adminu_opt>1 час</adminu_opt>
+			<adminu_opt>3 часа</adminu_opt>
+			<adminu_opt>1 день</adminu_opt>
+			<adminu_opt>1 неделя</adminu_opt>
+			<adminu_opt>на всегда</adminu_opt>
+			<notallowedroom>Вы не имеете доступа к этой комнате.</notallowedroom>
+			<notallowedroom>OK</notallowedroom>
+			<pwroom>Для вxода в эту комнату необxодимо ввести пароль.</pwroom>
+			<pwroom>Ошибка в пароле!</pwroom>
+		</changeuserevent>
+	</chat_js>
+	<chat_php>
+		<hallo_user>Привет</hallo_user>
+		<privat_anzeige>всем в этой комнате:</privat_anzeige>
+		<sagen>Отослать сообщение</sagen>
+		<smileys>Выбрать смайлов</smileys>
+		<color>Выбрать цвет и вид шрифта</color>
+		<prop>Разные другие функции чата</prop>
+		<logout>Покинуть чат (logout)</logout>
+	</chat_php>
+	<index_php>
+		<name>Твой ник:</name>
+		<pw>Пароль:</pw>
+		<gender>Твой пол:</gender>
+		<sex>не играет роли</sex>
+		<sex>мужской</sex>
+		<sex>женский</sex>
+		<invisible>войти невидимкой</invisible>
+		<submit>В чат!</submit>
+	</index_php>
+	<reloader_php>
+		<spam>Клавиатура заела? - Пиши не так быстро!</spam>
+	</reloader_php>
+	<checkusername_php>
+		<name_busy>Это имя используется другим пользователем.</name_busy>
+		<pw_falsch>Ошибка в пароле.</pw_falsch>
+		<many_logins>Блокировка на три минуты!
+Ты черезчур часто вxодиш и выxодиш из чата.</many_logins>
+		<eintritt>вxодит в чат.</eintritt>
+	</checkusername_php>
+	<logout_php>
+		<exit>покидает чат.</exit>
+	</logout_php>
+	<farben_fenster_php>
+		<font>Шрифт:</font>
+		<kursiv>Курсив</kursiv>
+		<bold>Жирный</bold>
+		<colormanagement>Выбор цвета:</colormanagement>
+		<aktcol>Выбранный цвет:</aktcol>
+	</farben_fenster_php>
+	<history_php>
+		<priv>приватная переписка</priv>
+		<user>пользователь</user>
+		<date>дата</date>
+		<text>текст</text>
+		<room>комната</room>
+		<site_of>из</site_of>
+		<site>Страница:</site>
+		<export>Экспорт истории сообщений:</export>
+		<empty>Нет записей.</empty>
+	</history_php>
+	<changepw_php>
+		<warning>В течении последних 24 часов вы уже зарегистрировали одно имя.</warning>
+	</changepw_php>
+	<unregisterpw_php>
+		<warning>Ошибка!</warning>
+		<warning>Ошибка в написании пароля.</warning>
+	</unregisterpw_php>	
+	<admin>
+		<add2blacklist>
+			<session_lost>Отказано в доступе или сессия завершена.</session_lost>
+			<user_away>Пользователь уже покунил чат.</user_away>
+		</add2blacklist>
+		<blacklist>
+			<title>Вам отказанно в дальнейшем использовании чата до: </title>
+			<cont>По поводу обжалования обращайтесь к администрации чата.</cont>
+			<link_zurueck pfad="./">На стартовую страницу</link_zurueck>
+		</blacklist>
+		<kick>
+			<title>Вас кротковременно выкинули из чата (kick). Вы можете снова войти в чат.</title>
+			<cont>По поводу обжалования обращайтесь к администрации чата.</cont>
+			<link_zurueck pfad="./">На стартовую страницу</link_zurueck>
+		</kick>
+		<spam>
+			<title>Вам автоматически закрыт доступ в чат на 5 минут из за флуда.</title>
+			<cont>По поводу обжалования обращайтесь к администрации чата.</cont>
+			<link_zurueck pfad="./">На стартовую страницу</link_zurueck>
+		</spam>
+		<index_php>
+			<error>Сюда можно только администраторам.</error>
+			<link>Управление BlackList</link>
+			<link>Управление комнатами</link>
+			<link>Управление администраторами и модераторами</link>
+			<link>Общие установки чата</link>
+			<link>Управление smilies</link>
+			<link>Управление зарегистрированными пользователями</link>
+		</index_php>
+		<admin_blacklist>
+			<backlink>обратно в главное меню</backlink>
+			<deletelink>стереть</deletelink>
+			<note>Учтите, что административные изменения видны в чате с замедлением в несколько секунд.</note>
+			<empty>BlackList пуст.</empty>
+			<error>Отказано в доступе или сессия завершена.</error>
+		</admin_blacklist>
+		<admin_rooms>
+			<backlink>обратно в главное меню</backlink>
+			<newroom>Создать новую комнату</newroom>
+			<roomname>Название:</roomname>
+			<room_priv>открыта всем</room_priv>
+			<room_priv>админы и моды</room_priv>
+			<room_priv>только админы</room_priv>
+			<room_priv>на пароле</room_priv>
+			<room_priv>зарегистрированные пользователи</room_priv>
+			<create>Создать</create>
+			<roomslist>Список существующиx комнат</roomslist>
+			<rename>изменить</rename>
+			<delete>стереть</delete>
+			<pass>Пароль:</pass>
+			<message>Сообщение при вxоде:</message>
+			<note>Учтите, что административные изменения видны в чате с замедлением в несколько секунд.</note>
+			<error>Отказано в доступе или сессия завершена.</error>
+		</admin_rooms>
+		
+		<admin_smilies>
+			<backlink>обратно в главное меню</backlink>
+			<smilie>Создать нового смайла</smilie>
+			<file_exists>Файл с этим названием уже существует, поэтому файл переименнован в:</file_exists>
+			<file>Выбрать смайлика:</file>
+			<file>Сокращение:</file>
+			<file>Отослать</file>
+			<file>Найти</file>
+			<create>Создать</create>
+			<pic>Smilie</pic>
+			<rename>корректировать</rename>
+			<delete>удалить</delete>
+			<sign>Сокращение</sign>
+			<sign_exists>Такое сокращение уже имеется!</sign_exists>
+			<isupload>Файл успешно принять и занесён в систему.</isupload>
+			<noupload>Ошибка при загрузке!</noupload>
+			<title>Управление Smilies</title>
+			<back>назад</back>
+			<note>Учтите, что административные изменения видны в чате с замедлением в несколько секунд.</note>
+			<error>Отказано в доступе или сессия завершена.</error>
+		</admin_smilies>
+		
+		<admin_user>
+			<backlink>обратно в главное меню</backlink>
+			<new_user>Создать нового модератора/администратора</new_user>
+			<edit>изменить</edit>
+			<noadmins>Ошибка при запросе в БД или отсутствуют администраторы в системе.</noadmins>
+			<note>Учтите, что административные изменения видны в чате с замедлением в несколько секунд.</note>
+			<error>Отказано в доступе или сессия завершена.</error>
+			<name>Имя:</name>
+			<pw>Пароль:</pw>
+			<pw_note>(при оставлении этого поля незаполненым, пользователь соxраняет старый пароль)</pw_note>
+			<priv>Права:</priv>
+			<save>Соxранить</save>
+			<make_norm_user>Сделать из админа/модератора обычного пользователя.</make_norm_user>
+			<del_priv>Разжаловать</del_priv>
+		</admin_user>
+		<admin_reg_user>
+			<backlink>обратно в главное меню</backlink>
+			<set_all>все выбрать</set_all>
+			<unset_all>отменить выбор</unset_all>
+			<del>удалить пользователей</del>
+			<make2>дать ранг:</make2>
+			<name>Имя</name>
+			<reg_date>Дата регистрации</reg_date>
+			<reg_ip>IP во время рег.</reg_ip>
+			<asc>по возрастанию</asc>
+			<desc>по убыванию</desc>
+			<sort>сортирование:</sort>
+			<text>При удалении пользователя, его имя станет свободным для гостевого доступа.</text>
+			<note>Учтите, что административные изменения видны в чате с замедлением в несколько секунд.</note>
+			<error>Отказано в доступе или сессия завершена.</error>
+			<nouser>Зарегистрированныx пользователей не нейденно.</nouser>
+			<nouser2>Для создания новых администраторов / модераторов, пользователь должен изначально зарегистрировать своё имя в чате, так чтобы его имя было защищено паролем. Затем можно присвоить каждому зарегистрированному пользователю привилегии модератора или администратора.</nouser2>
+			<site_of>из</site_of>
+			<site>Страница:</site>
+		</admin_reg_user>
+		<admin_prop>
+			<backlink>обратно в главное меню</backlink>
+			<anz>Количестно видимыx строк в чате:</anz>
+			<dbsets>Соxранять сообщения в БД</dbsets>
+			<time>дня/ей</time>
+			<reload>Интервал перезагрузки сообщений в миллисекундаx. (Параметр между 1000 и 10000 рекомендуется):</reload>
+			<style>Стиль:</style>
+			<lang>Язык:</lang>
+			<error>Отказано в доступе или сессия завершена.</error>
+			<note>Эти изменения заметны только после перезаxода в систему чата.</note>
+		</admin_prop>
+	</admin>
+</content>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content lang="deutsch" version="3070"> 
+	<chat_js>
+		<start_prop_link>Anzeige säubern (cls)</start_prop_link>
+		<start_prop_link>Verlauf anzeigen</start_prop_link>
+		<start_prop_link>Nachrichtensound:</start_prop_link> 
+		<start_prop_link>alle an</start_prop_link>
+		<start_prop_link>aus</start_prop_link>
+		<start_prop_link>Passwortänderung</start_prop_link> 
+		<start_prop_link>Neuer PW:</start_prop_link>
+		<start_prop_link>nur privat an</start_prop_link><!--Soundstatus-->
+		<start_prop_link>Systemnachrichten anzeigen</start_prop_link>
+		<start_prop_link>Passwortschutz entfernen</start_prop_link>
+		<start_prop_register>
+			<start_prop_link>Namen durch Passwort schützen</start_prop_link> 
+			<title>Registriere</title>
+			<pw1>Passwort:</pw1>
+			<pw2>Passwort wiederholen:</pw2>
+			<button_register>Registrieren</button_register>
+			<button_cancel>Abbrechen</button_cancel>
+			<befor_registering>Durch die Vergabe eines Passwortes können Sie Ihren Chatnamen dauerhaft reservieren.</befor_registering>
+			<after_registering>Vielen Dank für Ihre Registrierung. Beim erneuten Anmelden im Chat werden Sie zur Passworteingabe aufgefordert.</after_registering>
+			<after_registering_link>Chat verlassen</after_registering_link>
+			<error>Passwörter sind nicht identisch! Bitte korrigieren.</error>
+		</start_prop_register>
+		<remove_pw_win>
+			<title>Passwortschutz aufheben für:</title>
+			<text>Um den Passwortschutz für deinen Benutzernmen zu deaktivieren, bestätige dies durch die eingabe deines Passworts.</text>
+			<text>Beachte!</text>
+			<text>Nach der Bestätigung wirst du aus dem Chat ausgeloggt.</text>
+			<button>Passwortschutz aufheben</button>
+		</remove_pw_win>
+		<warning_user_away_1>
+			<warning>Warnung!</warning>
+			<warning>Dieser Benutzer wird aktuell nicht in der Online-Liste geführt. Der Benutzer hat sich entweder erst vor wenigen Sekunden in den Chat eingeloggt oder den Chat bereits verlassen.</warning>
+		</warning_user_away_1>
+		<warning_user_away_2>
+			<warning>Warnung!</warning>
+			<warning>Der Empfänger dieser Privatnachricht hat den Chat bereits verlassen.</warning>
+		</warning_user_away_2>
+		<start>an alle im Raum:</start>
+		<ajaxreadrequest>du bist zu lange inaktiv und wirst in 30 sek. ausgeloggt...</ajaxreadrequest>
+		<receiveresultjson>an</receiveresultjson>
+		<receiveresultjson>privat</receiveresultjson>
+		<receiveresultjson_priv>im Chat</receiveresultjson_priv>
+		<receiveresultjson_priv>im Fenster</receiveresultjson_priv>
+		<receiveresultjson_priv>Antworten in diesem Fenster</receiveresultjson_priv>
+		<send>Versende...</send>
+		<historywindow>Verlauf</historywindow>
+		<updateuseronlineanzeige>Räume- und Useranzeige</updateuseronlineanzeige>
+		<updateuseronlineanzeige>User im Chat:</updateuseronlineanzeige>
+		<updateuseronlineanzeige>Benutzer anspechen</updateuseronlineanzeige>
+		<statuslink>Benutzerstatus</statuslink>
+		<title_alert>Neue Nachricht/en</title_alert>
+		<status imagename="status_online" rights="all">online</status> 
+		<status imagename="status_invisible" rights="admin">unsichtbar</status>	
+		<status imagename="status_busy" rights="all">beschäftigt</status> 
+		<status imagename="status_away" rights="all">kurz weg</status> 
+		<status imagename="status_smil" rights="all">bereit zum Chatten</status> 
+		<status imagename="status_controller" rights="all">spiele nebenbei</status> 
+		<status imagename="status_telephone" rights="all">telefoniere</status> 
+		<status imagename="status_heart" rights="all">Liebe zu vergeben</status> 
+		<changeuserevent>
+			<privat>privat an</privat>
+			<privat>Privat beenden</privat>
+			<room>betritt den Raum</room>
+			<infoblock>Benutzer:</infoblock>
+			
+			<infoblock>Benutzer ansprechen</infoblock>
+			<infoblock>Privatnachricht im Chatfenster</infoblock>
+			<infoblock>Privatchat im separaten Fenster</infoblock>
+			
+			<infoblock>Nachrichten blokieren</infoblock>
+			<infoblock>alle</infoblock>
+			<infoblock>nur private</infoblock>
+			
+			<adminu>User durch die Eintragung der IP in die BlackList aus dem Chat werfen oder nur Kicken? (Die IP kann nur durch Administrator aus der BlackList entfernt werden. Nach der Bestätigung dauert es einige Minuten, bis der blokierte User aus der Onileanzeige genommen wird.)</adminu> <!--changed-->
+			<adminu>Ausführen</adminu> 
+			<adminu>ist ein</adminu>
+			<adminu>und darf daher nicht administriert werden.</adminu>
+			<adminu_opt>Kick User</adminu_opt>
+			<adminu_opt>10 Minuten</adminu_opt>
+			<adminu_opt>30 Minuten</adminu_opt>
+			<adminu_opt>1 Stunde</adminu_opt>
+			<adminu_opt>3 Stunden</adminu_opt>
+			<adminu_opt>1 Tag</adminu_opt>
+			<adminu_opt>1 Woche</adminu_opt>
+			<adminu_opt>Für immer</adminu_opt>
+			<notallowedroom>Sie haben keine Rechte um diesen Raum zu betretten.</notallowedroom>
+			<notallowedroom>OK</notallowedroom>
+			<pwroom>Dieser Raum ist geschützt durch einen Passwort. Bitte Passwort eingeben:</pwroom>
+			<pwroom>Passwort ist Falsch!</pwroom>
+		</changeuserevent>
+	</chat_js>
+	<chat_php>
+		<hallo_user>Hallo</hallo_user>
+		<privat_anzeige>an alle im Raum:</privat_anzeige>
+		<sagen>Nachricht versenden</sagen>
+		<smileys>Smileys auswählen</smileys>
+		<color>Schriftfarbe und Schriftart</color>
+		<prop>Weitere Chat-Funktionen und Einstellungen</prop>
+		<logout>Chat verlassen (logout)</logout>
+	</chat_php>
+	<index_php>
+		<name>Dein Name:</name>
+		<pw>Passwort:</pw>
+		<gender>Geschlecht:</gender>
+		<sex>keine Angabe</sex>
+		<sex>männlich</sex>
+		<sex>weiblich</sex>
+		<invisible>unsichtbar</invisible>
+		<submit>Los gehts!</submit>
+	</index_php>
+	<reloader_php> 
+		<spam>Spamabsicht? - Schreiben Sie bitte nicht so schnell hinter einander.</spam>
+	</reloader_php>
+	<checkusername_php>
+		<name_busy>Dieser Name wird momentan von einem anderen User verwendet.</name_busy>
+		<pw_falsch>Passwort ist leider falsch.</pw_falsch>
+		<many_logins>Sperre für 3 Minuten!		
+Die Loginprozedur wurde von Ihnen zu oft durchgeführt.</many_logins>
+		<eintritt>kommt hinein.</eintritt>
+	</checkusername_php>
+	<logout_php>
+		<exit>geht aus dem Chat.</exit>
+	</logout_php>
+	<farben_fenster_php>
+		<font>Schrift:</font>
+		<kursiv>Kursiv</kursiv>
+		<bold>Bold</bold>
+		<colormanagement>Farbmanagement:</colormanagement>
+		<aktcol>Aktuelle Farbe:</aktcol>
+	</farben_fenster_php>
+	<history_php>
+		<priv>private Nachrichten</priv>
+		<user>User</user>
+		<date>Datum</date>
+		<text>Text</text>
+		<room>Raum</room>
+		<site_of>von</site_of>
+		<site>Seite:</site>
+		<export>Exportiere Verlauf:</export>
+		<empty>Keine Einträge in der Datenbank.</empty>
+	</history_php>
+	<changepw_php>
+		<warning>Du hast innerhalb der letzten 24 Stunden bereits einen Namen mit Passwort geschützt.</warning>
+	</changepw_php>	
+	<unregisterpw_php>
+		<warning>Fehler!</warning>
+		<warning>Passwort ist leider falsch.</warning>
+	</unregisterpw_php>	
+	<admin>
+		<add2blacklist>
+			<session_lost>Keine Berechtigung oder Session ist abgelaufen.</session_lost>
+			<user_away>User ist bereits abgemeldet.</user_away>
+		</add2blacklist>
+		<blacklist>
+			<title>Sie wurden aus dem Chat ausgeschlossen bis zum: </title> 
+			<cont>Bei Fragen wenden Sie sich an den Chatbetreiber.</cont>
+			<link_zurueck pfad="./">Zurück zur Anmeldeseite</link_zurueck> 
+		</blacklist>
+		<kick>
+			<title>Sie wurden aus dem Chat gekickt, dürfen aber sofort wieder rein!</title> 
+			<cont>Bei Fragen wenden Sie sich an den Chatbetreiber.</cont> 
+			<link_zurueck pfad="./">Zurück zur Anmeldeseite</link_zurueck> 
+		</kick>
+		<spam>
+			<title>Sie wurden automatisch aus dem Chat für 5 Minuten ausgeschlossen wegen Flud.</title> 
+			<cont>Bei Fragen wenden Sie sich an den Chatbetreiber.</cont> 
+			<link_zurueck pfad="./">Zurück zur Anmeldeseite</link_zurueck> 
+		</spam>
+		<index_php>
+			<error>Hier dürfen nur Admins rein.</error>
+			<link>BlackList verwalten</link>
+			<link>Räume verwalten</link>
+			<link>Admins/Moderatoren verwalten</link>
+			<link>Allgemeine Chateinstellungen</link>
+			<link>Smilie verwalten</link>
+			<link>Registrierte Benutzer verwalten</link>
+		</index_php>
+		<admin_blacklist>
+			<backlink>zurück zum Adminmenue</backlink>
+			<deletelink>löschen</deletelink>
+			<note>Beachte, dass administratorische Änderungen im Chat erst nach einigen Sekunden Verzögerung ankommen.</note>
+			<empty>Keine Eintragungen in der Blacklist.</empty>
+			<error>Keine Rechte oder die Session ist abgelaufen.</error>
+		</admin_blacklist>
+		<admin_rooms>
+			<backlink>zurück zum Adminmenue</backlink>
+			<newroom>Neuen Raum anlegen</newroom>
+			<roomname>Name:</roomname>
+			<room_priv>offen für alle</room_priv>
+			<room_priv>Admins und Mods</room_priv>
+			<room_priv>nur Admins</room_priv>
+			<room_priv>passwortgeschützt</room_priv>
+			<room_priv>alle registrierten Benutzer</room_priv>
+			<create>Erstellen</create>
+			<roomslist>Liste vorhandener Räume</roomslist>
+			<rename>editieren</rename>
+			<delete>löschen</delete>
+			<pass>Pass:</pass>
+			<message>Nachricht am Eingang:</message> 
+			<note>Beachte, dass administratorische Änderungen im Chat erst nach einigen Sekunden Verzögerung ankommen.</note>
+			<error>Keine Rechte oder die Session ist abgelaufen.</error>
+		</admin_rooms>
+		
+		<admin_smilies>
+			<backlink>zurück zum Adminmenue</backlink>
+			<smilie>Neuen Smilie anlegen</smilie>
+			<file_exists>Da bereits ein Smilie mit diesem Namen vorhanden war, wurde er unbeannt auf:</file_exists>
+			<file>Smilie wählen:</file>
+			<file>Kürzel:</file>
+			<file>Senden</file>
+			<file>Durchsuchen</file>
+			<create>Erstellen</create>
+			<pic>Smilie</pic>
+			<rename>editieren</rename>
+			<delete>löschen</delete>
+			<sign>Kürzel</sign>
+			<sign_exists>Kürzel vorhanden!</sign_exists>
+			<isupload>Die Datei wurde geprüft und erfolgreich hochgeladen.</isupload>
+			<noupload>Datei-Upload fehlgeschlagen!</noupload>
+			<title>Smilie-Verwaltung</title>
+			<back>Zurück</back>
+			<note>Beachte, dass administratorische Änderungen bei den Smilies erst nach einem erneuten Login sichtbar werden.</note>
+			<error>Keine Rechte oder die Session ist abgelaufen.</error>
+		</admin_smilies>
+		
+		<admin_user>
+			<backlink>zurück zum Adminmenue</backlink>
+			<new_user>Neuen Administrator oder Moderator anlegen.</new_user>
+			<edit>edit</edit>
+			<noadmins>Fehler bei der DB Abfrage oder keine Admins vorhanden.</noadmins>
+			<note>Beachte, dass administratorische Änderungen im Chat erst nach einigen Sekunden Verzögerung ankommen.</note>
+			<error>Keine Rechte oder die Session ist abgelaufen.</error>
+			<name>Name:</name>
+			<pw>Passwort:</pw>
+			<pw_note>(wenn dieses Feld leer gelassen wird, wird der alte Passwort beibehalten)</pw_note>
+			<priv>Privilegien:</priv>
+			<save>Speichern</save>
+			<make_norm_user>Den User zum normalen Chatbenutzer machen.</make_norm_user>
+			<del_priv>Alle Rechte aberkennen</del_priv>
+		</admin_user>
+		
+		<admin_reg_user>
+			<backlink>zurück zum Adminmenue</backlink>
+			<set_all>alle auswählen</set_all>
+			<unset_all>keine auswählen</unset_all>
+			<del>ausgewählte Benutzer löschen</del>
+			<make2>mache zum:</make2>
+			<name>Name</name>
+			<reg_date>Reg. Datum</reg_date>
+			<reg_ip>IP während Reg.</reg_ip>
+			<asc>aufsteigend</asc>
+			<desc>absteigend</desc>
+			<sort>Sortiert nach:</sort>
+			<text>Wenn ein Benutzer gelöscht wird, wird der gelöschte Name wieder für den Gastzugang freigegeben.</text>
+			<note>Beachte, dass administratorische Änderungen im Chat erst nach einigen Sekunden Verzögerung ankommen.</note>
+			<error>Keine Rechte oder die Session ist abgelaufen.</error>
+			<nouser>Keine registrierten Benutzer vorhanden.</nouser>
+			<nouser2>Um neue Administratoren/Moderatoren anlegen zu können, müssen diese sich zuerst im Chat registrieren, also ihre Namen durch Passwort schützen. Danach ist es möglich jedem registrierten Benutzer Mod oder Admin-Rechte zu vergeben.</nouser2>
+			<site_of>von</site_of>
+			<site>Seite:</site>
+		</admin_reg_user>
+		
+		<admin_prop>
+			<backlink>zurück zum Adminmenue</backlink>
+			<anz>Anzahl der angezeigten Zeilen im Chat:</anz>
+			<dbsets>Wie lange die Datensätze in der Datenbank verbleiben:</dbsets>
+			<time>Tage</time>
+			<reload>Reloadsequenz in Millisekunden (ein Wert zwischen 1000 und 10000 ist sinvoll):</reload>
+			<style>Style:</style>
+			<lang>Sprache:</lang>
+			<error>Keine Rechte oder die Session ist abgelaufen.</error>
+			<note>Diese Änderungen sind erst nach einem erneuten Einloggen sichtbar.</note>
+		</admin_prop>
+	</admin>
+</content>

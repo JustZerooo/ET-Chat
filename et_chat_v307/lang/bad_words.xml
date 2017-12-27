@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content>
+	<word in="scheisse"			out="Sch..." />
+	<word in="scheiss"			out="Sch..." />
+	<word in="schisse"			out="Sch..." />
+	<word in="scheiße"			out="Sch..." />
+	<word in="scheiß"			out="Sch..." />
+	<word in="schiße"			out="Sch..." />
+	<word in="scheis"			out="Sch..." />
+	<word in="fuck"				out="fu..." />
+	<word in="fick"				out="fi..." />
+	<word in="arsch"			out="Ar..." >
+		<except>nachbarsch</except>
+		<except>Nachbarsch</except>
+		<except>barsch</except>
+		<except>Barsch</except>
+		<except>marsch</except>
+		<except>Marsch</except>
+		<except>harsch</except>
+		<except>haarsch</except> <!-- for haarscharf -->
+		<except>arschau</except> <!-- for Warschau -->
+		<except>arscheck</except> <!-- for Barscheck -->
+	</word>
+	<word in="ärsche"			out="schlechte Menschen" />
+	<word in="wichser"			out="Onanist" />
+	<word in="wixer"			out="Onanist" />
+	<word in="wikser"			out="Onanist" />
+	<word in="kack"				out="k..." />
+	<word in="hure"				out="H..." />
+	<word in="votze"			out="V..." />
+	<word in="kotze"			out="Erbrochenes" />
+	<word in="schlampe"			out="Prostituierte" />
+
+	<!-- russian -->
+	<word in="xуй"				out="*мат*" />
+	<word in="xуя"				out="*мат*" />
+	<word in="xуе"				out="*мат*" />
+	<word in="бля"				out="*мат*" >
+		<except>Корабля</except>
+		<except>корабля</except>
+		<except>Коробля</except>
+		<except>коробля</except>
+		<except>потребля</except>
+		<except>Потребля</except>
+		<except>Оскорбля</except>
+		<except>оскорбля</except>
+	</word>
+	<word in="ебать"			out="*мат*" />
+	<word in="ёб"				out="*мат*" />
+	<word in="пизда"			out="*мат*" />
+</content>

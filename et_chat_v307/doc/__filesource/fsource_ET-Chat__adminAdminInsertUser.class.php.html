@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>File Source for AdminInsertUser.class.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h1 align="center">Source for file AdminInsertUser.class.php</h1>
+<p>Documentation is available at <a href="../ET-Chat/_admin---AdminInsertUser.class.php.html">AdminInsertUser.class.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><strong>&lt;?php</strong></div></li>
+<li><div class="src-line"><a name="a2"></a><font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a3"></a><font color="#009999">&nbsp;*&nbsp;Class&nbsp;AdminInsertUser&nbsp;-&nbsp;Admin&nbsp;area</font></div></li>
+<li><div class="src-line"><a name="a4"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a5"></a><font color="#009999">&nbsp;*&nbsp;LICENSE:&nbsp;CREATIVE&nbsp;COMMONS&nbsp;PUBLIC&nbsp;LICENSE&nbsp;&nbsp;&quot;Namensnennung&nbsp;—&nbsp;Nicht-kommerziell&nbsp;2.0&quot;</font></div></li>
+<li><div class="src-line"><a name="a6"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a7"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@copyright</font></strong><font color="#009999">&nbsp;&nbsp;2009&nbsp;&lt;SEDesign&nbsp;/&gt;</font></div></li>
+<li><div class="src-line"><a name="a8"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@license</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;http://creativecommons.org/licenses/by-nc/2.0/de/</font></div></li>
+<li><div class="src-line"><a name="a9"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@version</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;$3.0.6$</font></div></li>
+<li><div class="src-line"><a name="a10"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@link</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.sedesign.de/de_produkte_chat-v3.html</font></div></li>
+<li><div class="src-line"><a name="a11"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@since</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File&nbsp;available&nbsp;since&nbsp;Alpha&nbsp;1.0</font></div></li>
+<li><div class="src-line"><a name="a12"></a><font color="#009999">&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a13"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a14"></a><font color="blue">class&nbsp;</font><a href="../ET-Chat/AdminInsertUser.html">AdminInsertUser</a>&nbsp;<font color="blue">extends&nbsp;</font><a href="../ET-Chat/DbConectionMaker.html">DbConectionMaker</a></div></li>
+<li><div class="src-line"><a name="a15"></a><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a16"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a17"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a18"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constructor</font></div></li>
+<li><div class="src-line"><a name="a19"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a20"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;ConnectDB::sqlSet()</font></div></li>
+<li><div class="src-line"><a name="a21"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;ConnectDB::close()</font></div></li>
+<li><div class="src-line"><a name="a22"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>void&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a23"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a24"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/AdminInsertUser.html#method__construct">__construct</a>&nbsp;<strong>(</strong><strong>)</strong><strong>{&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a25"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a26"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;call&nbsp;parent&nbsp;Constructor&nbsp;from&nbsp;class&nbsp;DbConectionMaker</font></div></li>
+<li><div class="src-line"><a name="a27"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent<strong>::</strong><a href="../ET-Chat/DbConectionMaker.html#method__construct">__construct</a><strong>(</strong><strong>)</strong><strong>;&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a29"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/session_start">session_start</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a30"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/header">header</a><strong>(</strong><font color="#66cccc">'Cache-Control:&nbsp;no-store,&nbsp;no-cache,&nbsp;must-revalidate,&nbsp;pre-check=0,&nbsp;post-check=0,&nbsp;max-age=0'</font><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;Sets&nbsp;charset&nbsp;and&nbsp;content-type&nbsp;for&nbsp;index.php</font></div></li>
+<li><div class="src-line"><a name="a33"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/header">header</a><strong>(</strong><font color="#66cccc">'content-type:&nbsp;text/html;&nbsp;charset=utf-8'</font><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a34"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a35"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;create&nbsp;new&nbsp;LangXml&nbsp;Object</font></div></li>
+<li><div class="src-line"><a name="a36"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$langObj&nbsp;</strong>=&nbsp;new&nbsp;<a href="../ET-Chat/LangXml.html">LangXml</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a37"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$lang</strong>=<strong>$langObj</strong><strong>-&gt;</strong>getLang<strong>(</strong><strong>)</strong><strong>-&gt;</strong>admin<strong>[</strong>0<strong>]</strong><strong>-&gt;</strong>admin_user<strong>[</strong>0<strong>]</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a38"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a39"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a40"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong><strong>$_SESSION</strong><strong>[</strong><font color="#66cccc">'etchat_'</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_prefix">_prefix</a>.<font color="#66cccc">'user_priv'</font><strong>]</strong>==<font color="#66cccc">&quot;admin&quot;</font><strong>)</strong><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a41"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a42"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong>empty<strong>(</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'user'</font><strong>]</strong><strong>))&nbsp;</strong><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a43"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<font color="#66cccc">&quot;Please&nbsp;fill&nbsp;user&nbsp;name&nbsp;field.&lt;br&gt;&lt;br&gt;&lt;a&nbsp;href=\&quot;./?AdminCreateNewUser\&quot;&gt;back&lt;/a&gt;&quot;</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a44"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">return&nbsp;</font>false<strong>;</strong></div></li>
+<li><div class="src-line"><a name="a45"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a46"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a47"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$_POST</strong><strong>[</strong><font color="#66cccc">'user'</font><strong>]&nbsp;</strong>=&nbsp;<a href="http://www.php.net/htmlentities">htmlentities</a><strong>(</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'user'</font><strong>]</strong><strong>,&nbsp;</strong>ENT_QUOTES<strong>,&nbsp;</strong><font color="#66cccc">&quot;UTF-8&quot;</font><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a48"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$_POST</strong><strong>[</strong><font color="#66cccc">'priv'</font><strong>]&nbsp;</strong>=&nbsp;<a href="http://www.php.net/htmlentities">htmlentities</a><strong>(</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'priv'</font><strong>]</strong><strong>,&nbsp;</strong>ENT_QUOTES<strong>,&nbsp;</strong><font color="#66cccc">&quot;UTF-8&quot;</font><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a49"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong><strong>!</strong>empty<strong>(</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'pw'</font><strong>]</strong><strong>))&nbsp;</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'pw'</font><strong>]&nbsp;</strong>=&nbsp;<font color="#66cccc">&quot;'&quot;</font>.<a href="http://www.php.net/md5">md5</a><strong>(</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'pw'</font><strong>]</strong><strong>)</strong>.<font color="#66cccc">&quot;'&quot;</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a50"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;<strong>$_POST</strong><strong>[</strong><font color="#66cccc">'pw'</font><strong>]&nbsp;</strong>=&nbsp;<font color="#66cccc">&quot;NULL&quot;</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a51"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a52"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;Test&nbsp;if&nbsp;the&nbsp;user&nbsp;exists&nbsp;in&nbsp;the&nbsp;DB</font></div></li>
+<li><div class="src-line"><a name="a53"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$res&nbsp;</strong>=&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/DbConectionMaker.html#var$dbObj">dbObj</a><strong>-&gt;</strong>sqlGet<strong>(</strong><font color="#66cccc">&quot;</font><font color="#66cccc">select&nbsp;etchat_user_id&nbsp;FROM&nbsp;{<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_prefix">_prefix</a><strong>}</strong>etchat_user&nbsp;where&nbsp;etchat_username&nbsp;=&nbsp;'</font><font color="#66cccc"><font color="#66cccc">"</font>.<strong>$_POST</strong><strong>[</strong><font color="#66cccc">'user'</font><strong>]</strong>.<font color="#66cccc">&quot;'&quot;</font><strong>)</strong><strong>;</strong></font></div></li>
+<li><div class="src-line"><a name="a54"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font>&nbsp;<strong>(</strong>is_array<strong>(</strong><strong>$res</strong><strong>))</strong></font></div></li>
+<li><div class="src-line"><a name="a55"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/DbConectionMaker.html#var$dbObj">dbObj</a><strong>-&gt;</strong>sqlSet<strong>(</font><font color="#66cccc"></strong><font color="#66cccc">"</font>UPDATE&nbsp;</font>{<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_prefix">_prefix</a><strong>}</strong>etchat_user&nbsp;SET&nbsp;etchat_userpw&nbsp;=&nbsp;</font><font color="#66cccc"><font color="#66cccc">"</font>.<strong>$_POST</strong><strong>[</strong><font color="#66cccc">'pw'</font><strong>]</strong>.<font color="#66cccc">&quot;,&nbsp;etchat_userprivilegien&nbsp;&nbsp;=&nbsp;'&quot;</font>.<strong>$_POST</strong><strong>[</strong><font color="#66cccc">'priv'</font><strong>]</strong>.<font color="#66cccc">&quot;'&nbsp;WHERE&nbsp;etchat_user_id=&quot;</font>.<strong>$res</strong><strong>[</strong>0<strong>]</strong><strong>[</strong>0<strong>]</strong><strong>)</strong><strong>;</strong></font></div></li>
+<li><div class="src-line"><a name="a56"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</font></div></li>
+<li><div class="src-line"><a name="a57"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/DbConectionMaker.html#var$dbObj">dbObj</a><strong>-&gt;</strong>sqlSet<strong>(</font><font color="#66cccc"></strong><font color="#66cccc">"</font>INSERT&nbsp;INTO&nbsp;</font>{<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_prefix">_prefix</a><strong>}</strong>etchat_user(etchat_username,etchat_userpw,etchat_userprivilegien)&nbsp;VALUES&nbsp;('</font><font color="#66cccc"><font color="#66cccc">"</font>.<strong>$_POST</strong><strong>[</strong><font color="#66cccc">'user'</font><strong>]</strong>.<font color="#66cccc">&quot;',&nbsp;&quot;</font>.<strong>$_POST</strong><strong>[</strong><font color="#66cccc">'pw'</font><strong>]</strong>.<font color="#66cccc">&quot;,&nbsp;'&quot;</font>.<strong>$_POST</strong><strong>[</strong><font color="#66cccc">'priv'</font><strong>]</strong>.<font color="#66cccc">&quot;')&quot;</font><strong>)</strong><strong>;</strong></font></div></li>
+<li><div class="src-line"><a name="a58"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a59"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/DbConectionMaker.html#var$dbObj">dbObj</a><strong>-&gt;</strong>close<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a60"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;header<strong>(</strong><font color="#66cccc">&quot;Location:&nbsp;./?AdminUserIndex&quot;</font><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a61"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a62"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#66cccc"><strong>}</strong>else<strong>{</strong></font></div></li>
+<li><div class="src-line"><a name="a63"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<strong>$lang</strong></font><strong>-&gt;</strong>error<strong>[</strong>0<strong>]</strong><strong>-&gt;</strong>tagData<strong>;</strong></div></li>
+<li><div class="src-line"><a name="a64"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">return&nbsp;</font>false<strong>;</strong></div></li>
+<li><div class="src-line"><a name="a65"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#66cccc"><strong>}</strong></font></div></li>
+<li><div class="src-line"><a name="a66"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></font></div></li>
+</ol></div>
+</div>
+	<div id="credit">
+		<hr />
+		Documentation generated on Thu, 05 May 2011 14:05:53 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</div>
+</body>
+</html>

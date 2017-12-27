@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<content lang="english" version="3070">
+	<chat_js>
+		<start_prop_link>Clear screen</start_prop_link>
+		<start_prop_link>Show history</start_prop_link>
+		<start_prop_link>Message sound:</start_prop_link> 
+		<start_prop_link>on</start_prop_link>
+		<start_prop_link>off</start_prop_link>
+		<start_prop_link>Change password</start_prop_link> 
+		<start_prop_link>New PW:</start_prop_link>
+		<start_prop_link>only privat on</start_prop_link><!-- Sound status -->
+		<start_prop_link>show system messages</start_prop_link>
+		<start_prop_link>Remove password protection</start_prop_link>
+		<start_prop_register>
+			<start_prop_link>Protect your name</start_prop_link> 
+			<title>Sign Up</title>
+			<pw1>Password:</pw1>
+			<pw2>Repeat password:</pw2>
+			<button_register>Assign</button_register>
+			<button_cancel>Cancel</button_cancel>
+			<befor_registering>By assigning a password, you can reserve your chat name permanently.</befor_registering>
+			<after_registering>Thank you for your registration. When you re-sign in the chat you will be prompted to enter your password.</after_registering>
+			<after_registering_link>Leave the chat</after_registering_link>
+			<error>Passwords are not identical! Please correct.</error>
+		</start_prop_register>
+		<remove_pw_win>
+			<title>Remove password-protection for:</title>
+			<text>To remove the password-protection for your nik name, please confirm it and insert your password.</text>
+			<text>Notice!</text>
+			<text>After the confirmation you will be logged out.</text>
+			<button>Remove password-protection</button>
+		</remove_pw_win>
+		<warning_user_away_1>
+			<warning>Warning!</warning>
+			<warning>This user is currently not being conducted in the online list.</warning>
+		</warning_user_away_1>
+		<warning_user_away_2>
+			<warning>Warning!</warning>
+			<warning>The recipient has already left the chat.</warning>
+		</warning_user_away_2>
+		<start>to everybody in this room:</start>
+		<ajaxreadrequest>you are to long inaktiv. You will be logged out in 30 sek.</ajaxreadrequest>
+		<receiveresultjson>at</receiveresultjson>
+		<receiveresultjson>privat</receiveresultjson>
+		<receiveresultjson_priv>into chat</receiveresultjson_priv>
+		<receiveresultjson_priv>into window</receiveresultjson_priv>
+		<receiveresultjson_priv>Reply into this window</receiveresultjson_priv>
+		<send>Send...</send>
+		<historywindow>History</historywindow>
+		<updateuseronlineanzeige>Rooms and users</updateuseronlineanzeige>
+		<updateuseronlineanzeige>User(s) in chat:</updateuseronlineanzeige>
+		<updateuseronlineanzeige>Get user name</updateuseronlineanzeige>
+		<statuslink>User state</statuslink>
+		<title_alert>New Message/s</title_alert>
+		<status imagename="status_online" rights="all">online</status> 
+		<status imagename="status_invisible" rights="admin">invisible</status>
+		<status imagename="status_busy" rights="all">busy</status>
+		<status imagename="status_away" rights="all">away</status>
+		<status imagename="status_smil" rights="all">want to chat</status>
+		<status imagename="status_controller" rights="all">playing games</status> 
+		<status imagename="status_telephone" rights="all">phoning</status>
+		<status imagename="status_heart" rights="all">just in love</status>
+		<changeuserevent>
+			<privat>privat to</privat>
+			<privat>End private mode</privat>
+			<room>joined the room</room>
+			<infoblock>User:</infoblock>
+			
+			<infoblock>Get user name</infoblock>
+			<infoblock>Private message in chat window</infoblock>
+			<infoblock>Private chat in a new window</infoblock>
+			
+			<infoblock>Block messages</infoblock>
+			<infoblock>all</infoblock>
+			<infoblock>only private</infoblock>
+
+			<adminu>Insert users IP into the BlackList.</adminu>
+			<adminu>Execute</adminu>
+			<adminu>is a</adminu>
+			<adminu>it is not allowed to administrate him.</adminu>
+			<adminu_opt>kick user</adminu_opt>
+			<adminu_opt>10 minutes</adminu_opt>
+			<adminu_opt>30 minutes</adminu_opt>
+			<adminu_opt>1 hour</adminu_opt>
+			<adminu_opt>3 hour</adminu_opt>
+			<adminu_opt>1 day</adminu_opt>
+			<adminu_opt>1 week</adminu_opt>
+			<adminu_opt>for ever</adminu_opt>
+			<notallowedroom>You are not allowed to enter this room.</notallowedroom>
+			<notallowedroom>OK</notallowedroom>
+			<pwroom>This room is protected. Please enter the password to come in.</pwroom>
+			<pwroom>Your password is wrong!</pwroom>
+		</changeuserevent>
+	</chat_js>
+	<chat_php>
+		<hallo_user>Welcome</hallo_user>
+		<privat_anzeige>to everybody in this room:</privat_anzeige>
+		<sagen>Send a message</sagen>
+		<smileys>Smileys</smileys>
+		<color>Font style and color</color>
+		<prop>Other chat functions and properties</prop>
+		<logout>Logout</logout>
+	</chat_php>
+	<index_php>
+		<name>Your name:</name>
+		<pw>Password:</pw>
+		<gender>Your gender:</gender>
+		<sex>no detail</sex>
+		<sex>male</sex>
+		<sex>female</sex>
+		<invisible>invisible mode</invisible>
+		<submit>Enter the chat!</submit>
+	</index_php>
+	<reloader_php> 
+		<spam>Spamer? - Please do not write so fast or check your keyboard.</spam>
+	</reloader_php>
+	<checkusername_php>
+		<name_busy>This name is taken by an other user.</name_busy>
+		<pw_falsch>Wrong password.</pw_falsch>
+		<many_logins>You are blocked for 3 minutes!		
+You are not allowed to login so many times in a short period of time.</many_logins>
+		<eintritt>joined the chat.</eintritt>
+	</checkusername_php>
+	<logout_php>
+		<exit>leaves the chat.</exit>
+	</logout_php>
+	<farben_fenster_php>
+		<font>Font:</font>
+		<kursiv>Cursive</kursiv>
+		<bold>Bold</bold>
+		<colormanagement>Color management:</colormanagement>
+		<aktcol>Actual color:</aktcol>
+	</farben_fenster_php>
+	<history_php>
+		<priv>privat messages</priv>
+		<user>User</user>
+		<date>Date</date>
+		<text>Text</text>
+		<room>Room</room>
+		<site_of>of</site_of>
+		<site>Site:</site>
+		<export>Export history:</export>
+		<empty>No datasets found.</empty>
+	</history_php>
+	<changepw_php>
+		<warning>You have already protected a name by password within the past 24 hours.</warning>
+	</changepw_php>
+	<unregisterpw_php>
+		<warning>Error!</warning>
+		<warning>Your password is wrong.</warning>
+	</unregisterpw_php>	
+	<admin>
+		<add2blacklist>
+			<session_lost>You\'re not allowed to be here your session is lost.</session_lost>
+			<user_away>User is just away.</user_away>
+		</add2blacklist>
+		<blacklist>
+			<title>You was banned from the chat until:</title>
+			<cont>With questions you turn to the chat operator.</cont>
+			<link_zurueck pfad="./">Back to login page</link_zurueck>
+		</blacklist>
+		<kick>
+			<title>You was kicked from this chat, but you can relogin yourself now.</title> 
+			<cont>With questions you turn to the chat operator.</cont>
+			<link_zurueck pfad="./">Back to login page</link_zurueck>
+		</kick>
+		<spam>
+			<title>You was automaticly banned for 5 minutes from the chat because of flooding.</title> 
+			<cont>With questions you turn to the chat operator.</cont>
+			<link_zurueck pfad="./">Back to login page</link_zurueck>
+		</spam>
+		<index_php>
+			<error>Here are allowed to do only admins purely.</error>
+			<link>Administrate BlackList</link>
+			<link>Administrate rooms</link>
+			<link>Administrate Admins/Mods</link>
+			<link>General chat settings</link>
+			<link>Smilie administration</link>
+			<link>Administrate registered users</link>
+		</index_php>
+		<admin_blacklist>
+			<backlink>back to the adminmenue</backlink>
+			<deletelink>delete</deletelink>
+			<note>Note that the changes come in the chat only after some seconds delay.</note>
+			<empty>Blacklist is empty now.</empty>
+			<error>You\'re not allowed to be here your session is lost.</error>
+		</admin_blacklist>
+		<admin_rooms>
+			<backlink>back to the adminmenue</backlink>
+			<newroom>Create new room</newroom>
+			<roomname>Name:</roomname>
+			<room_priv>open for all</room_priv>
+			<room_priv>admins and mods</room_priv>
+			<room_priv>only admins</room_priv>
+			<room_priv>pass protected</room_priv>
+			<room_priv>registered user</room_priv>
+			<create>Create</create>
+			<roomslist>Room list</roomslist>
+			<rename>edit</rename>
+			<delete>delete</delete>
+			<pass>Pass:</pass>
+			<message>Room message on entrance:</message> 
+			<note>Note that the changes come in the chat only after some seconds delay.</note>
+			<error>You\'re not allowed to be here your session is lost.</error>
+		</admin_rooms>
+		<admin_smilies>
+			<backlink>back to the adminmenue</backlink>
+			<smilie>Insert new smilie</smilie>
+			<file_exists>The file with this name exists, so your uploaded file war renamed in:</file_exists>
+			<file>Choose your smilie:</file>
+			<file>Sign:</file>
+			<file>Send</file>
+			<file>Find it</file>
+			<create>Create</create>
+			<pic>Smilie</pic>
+			<rename>edit</rename>
+			<delete>delete</delete>
+			<sign>Sign</sign>
+			<sign_exists>Sign allready exists!</sign_exists>
+			<isupload>You file was uploaded.</isupload>
+			<noupload>Error while uploading!</noupload>
+			<title>Smilie-Administration</title>
+			<back>back</back>
+			<note>Note that the changes come in the chat only after some seconds delay.</note>
+			<error>You\'re not allowed to be here your session is lost.</error>
+		</admin_smilies>
+		<admin_user>
+			<backlink>back to the adminmenue</backlink>
+			<new_user>Create new administrator or moderator.</new_user>
+			<edit>edit</edit>
+			<noadmins>Error in the DB request or no admins found.</noadmins>
+			<note>Note that the changes come in the chat only after some seconds delay.</note>
+			<error>You\'re not allowed to be here your session is lost.</error>
+			<name>Name:</name>
+			<pw>Password:</pw>
+			<pw_note>(if this field leaves empty, the old password will maintain)</pw_note>
+			<priv>Privileges:</priv>
+			<save>Save</save>
+			<make_norm_user>Make this user to a normal chat user.</make_norm_user>
+			<del_priv>Deprive all privileges</del_priv>
+		</admin_user>
+		
+		<admin_reg_user>
+			<backlink>back to the adminmenue</backlink>
+			<set_all>select all</set_all>
+			<unset_all>select none</unset_all>
+			<del>delete selected users</del>
+			<make2>change to:</make2>
+			<name>Name</name>
+			<reg_date>Reg. Date</reg_date>
+			<reg_ip>IP while reg.</reg_ip>
+			<asc>asc</asc>
+			<desc>desc</desc>
+			<sort>sorted by:</sort>
+			<text>If a user is deleted, the deleted name will be released for the guest access.</text>
+			<note>Note that the changes come in the chat only after some seconds delay.</note>
+			<error>You\'re not allowed to be here your session is lost.</error>
+			<nouser>No registered users found.</nouser>
+			<nouser2>To create new administrators / moderators, they must be registered first in the chat, so their names with password protection. Then it is possible to assign to every registered user mod or admin privileges.</nouser2>
+			<site_of>of</site_of>
+			<site>Site:</site>
+		</admin_reg_user>
+		
+		<admin_prop>
+			<backlink>back to the adminmenue</backlink>
+			<anz>Number of the indicated lines in the chat:</anz>
+			<dbsets>How long the records remain in the database:</dbsets>
+			<time>day(s)</time>
+			<reload>Reload sequenz in milliseconds (a value between 1000 and 10000 is recomended):</reload>
+			<style>Style:</style>
+			<lang>Language:</lang>
+			<error>You\'re not allowed to be here your session is lost.</error>
+			<note>These changes are visible only after renewed logging in.</note>
+		</admin_prop>
+	</admin>
+</content>

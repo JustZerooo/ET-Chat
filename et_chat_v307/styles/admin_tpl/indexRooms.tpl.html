@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+	<title>Rooms</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="styles/<?php echo $_SESSION['etchat_'.$this->_prefix.'style']; ?>/style.css" rel="stylesheet" type="text/css"/>
+<script src="js/prototype.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+window.onload = function() {
+	Element.hide('roompw');
+
+	$("room_priv").onchange = function(){
+		if ($("room_priv").value!=3) Element.hide('roompw');
+		else Element.show('roompw');
+	}
+}
+
+</script>
+</head>
+<body id="adminbereich_body">
+<?php
+
+$room4user_ptint = ($this->_allow_nick_registration) ? "<option value=\"4\">".$lang->room_priv[4]->tagData."</option>" : "";
+
+echo "<a href=\"./?AdminIndex\"><<< ".$lang->backlink[0]->tagData."</a><hr size=\"1\">";
+echo "<form action=\"./?AdminCreateNewRoom\" method=\"post\">
+<b>".$lang->newroom[0]->tagData."</b><br />
+".$lang->roomname[0]->tagData." <input name=\"room\" type=\"text\">
+         <select name=\"room_priv\" id=\"room_priv\" size=\"1\">
+         <option value=\"0\">".$lang->room_priv[0]->tagData."</option>
+		 ".$room4user_ptint."
+         <option value=\"1\">".$lang->room_priv[1]->tagData."</option>
+         <option value=\"2\">".$lang->room_priv[2]->tagData."</option>
+         <option value=\"3\">".$lang->room_priv[3]->tagData."</option>
+         </select>
+<input type=\"Submit\" name=\"\" value=\"".$lang->create[0]->tagData."\">
+<div id=\"roompw\"><br>".$lang->pass[0]->tagData." <input name=\"roompw\" type=\"text\" value=\"\"></div>
+</form><hr size=\"1\"><div style=\"padding:4px;\"><b>".$lang->roomslist[0]->tagData."</b></div>";
+echo $print_room_list."
+<hr size=\"1\">".$lang->note[0]->tagData;
+?>
+</body>
+</html>

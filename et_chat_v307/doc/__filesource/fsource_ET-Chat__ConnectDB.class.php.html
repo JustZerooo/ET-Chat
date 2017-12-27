@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>File Source for ConnectDB.class.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h1 align="center">Source for file ConnectDB.class.php</h1>
+<p>Documentation is available at <a href="../ET-Chat/_ConnectDB.class.php.html">ConnectDB.class.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><strong>&lt;?php</strong></div></li>
+<li><div class="src-line"><a name="a2"></a><font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a3"></a><font color="#009999">&nbsp;*&nbsp;Class&nbsp;ConnectDB,&nbsp;database&nbsp;connectivity&nbsp;class&nbsp;based&nbsp;on&nbsp;PDO&nbsp;Extension</font></div></li>
+<li><div class="src-line"><a name="a4"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a5"></a><font color="#009999">&nbsp;*&nbsp;All&nbsp;database&nbsp;connectivity&nbsp;in&nbsp;whole&nbsp;chat&nbsp;have&nbsp;to&nbsp;use&nbsp;this&nbsp;class&nbsp;to&nbsp;communicate&nbsp;whith&nbsp;the&nbsp;DB</font></div></li>
+<li><div class="src-line"><a name="a6"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a7"></a><font color="#009999">&nbsp;*&nbsp;LICENSE:&nbsp;CREATIVE&nbsp;COMMONS&nbsp;PUBLIC&nbsp;LICENSE&nbsp;&nbsp;&quot;Namensnennung&nbsp;—&nbsp;Nicht-kommerziell&nbsp;2.0&quot;</font></div></li>
+<li><div class="src-line"><a name="a8"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a9"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@copyright</font></strong><font color="#009999">&nbsp;&nbsp;2009&nbsp;&lt;SEDesign&nbsp;/&gt;</font></div></li>
+<li><div class="src-line"><a name="a10"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@license</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;http://creativecommons.org/licenses/by-nc/2.0/de/</font></div></li>
+<li><div class="src-line"><a name="a11"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@version</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;$3.0.6$</font></div></li>
+<li><div class="src-line"><a name="a12"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@link</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.sedesign.de/de_produkte_chat-v3.html</font></div></li>
+<li><div class="src-line"><a name="a13"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@since</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File&nbsp;available&nbsp;since&nbsp;Alpha&nbsp;1.0</font></div></li>
+<li><div class="src-line"><a name="a14"></a><font color="#009999">&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a15"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a16"></a><font color="blue">class&nbsp;</font><a href="../ET-Chat/ConnectDB.html">ConnectDB</a>&nbsp;<font color="blue">extends&nbsp;</font><a href="../ET-Chat/EtChatConfig.html">EtChatConfig</a><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a17"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a18"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a19"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;PDO&nbsp;Obj&nbsp;with&nbsp;DB&nbsp;connect</font></div></li>
+<li><div class="src-line"><a name="a20"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>PDO&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a21"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a22"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">protected&nbsp;</font><a href="../ET-Chat/ConnectDB.html#var$_connid">$_connid</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a23"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a24"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a25"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;last&nbsp;inserted&nbsp;id&nbsp;in&nbsp;the&nbsp;db&nbsp;after&nbsp;any&nbsp;sql-manipulation-statements</font></div></li>
+<li><div class="src-line"><a name="a26"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>int&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a27"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><a href="../ET-Chat/ConnectDB.html#var$lastId">$lastId</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a29"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a30"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a31"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constructor,&nbsp;&nbsp;creates&nbsp;a&nbsp;db&nbsp;connectivity</font></div></li>
+<li><div class="src-line"><a name="a32"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a33"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;PDO&nbsp;object&nbsp;creation</font></div></li>
+<li><div class="src-line"><a name="a34"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>void&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a35"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a36"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/ConnectDB.html#method__construct">__construct</a>&nbsp;<strong>(</strong><strong>)</strong><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a37"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a38"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;call&nbsp;parent&nbsp;Constructor&nbsp;from&nbsp;class&nbsp;EtChatConfig</font></div></li>
+<li><div class="src-line"><a name="a39"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent<strong>::</strong><a href="../ET-Chat/EtChatConfig.html#method__construct">__construct</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a40"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a41"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;</div></li>
+<li><div class="src-line"><a name="a42"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{&nbsp;&nbsp;&nbsp;&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a43"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/ConnectDB.html#var$_connid">_connid</a>&nbsp;=&nbsp;new&nbsp;PDO<strong>(</strong><font color="#66cccc">&quot;</font>{<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_usedDatabase">_usedDatabase</a><strong>}</strong>:host={<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_sqlhost">_sqlhost</a><strong>}</strong>;dbname=<font color="#66cccc"><font color="#66cccc">"</font>.<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_database">_database</a><strong>,&nbsp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_sqluser">_sqluser</a><strong>,&nbsp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_sqlpass">_sqlpass</a><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a44"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#66cccc"><strong>}</strong></font></div></li>
+<li><div class="src-line"><a name="a45"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch<strong>(</strong>PDOException&nbsp;<strong>$e</strong><strong>)</strong></font></div></li>
+<li><div class="src-line"><a name="a46"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></font></div></li>
+<li><div class="src-line"><a name="a47"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<font color="#66cccc">&quot;ERROR:&nbsp;&quot;</font>&nbsp;.&nbsp;<strong>$e</strong></font><strong>-&gt;</strong>getMessage<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a48"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<font color="#66cccc">&quot;&lt;br&nbsp;/&gt;&lt;h3&gt;Bitte&nbsp;editieren&nbsp;Sie&nbsp;die&nbsp;config.php&nbsp;und&nbsp;tragen&nbsp;Sie&nbsp;dort&nbsp;die&nbsp;geforderten&nbsp;Parameter&nbsp;ein.&nbsp;Danach&nbsp;machen&nbsp;Sie&nbsp;weiter&nbsp;mit&nbsp;der&nbsp;Installationsroutine.&nbsp;Mehr&nbsp;dazu&nbsp;finden&nbsp;Sie&nbsp;unter&nbsp;install.txt&nbsp;!&lt;/h3&gt;&quot;</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a49"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#66cccc"><strong>}</strong></font></div></li>
+<li><div class="src-line"><a name="a50"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></font></div></li>
+<li><div class="src-line"><a name="a51"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a52"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;/**</font></div></li>
+<li><div class="src-line"><a name="a53"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;for&nbsp;making&nbsp;sql-select-queries</font></div></li>
+<li><div class="src-line"><a name="a54"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a55"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;&nbsp;string&nbsp;$sql&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a56"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@uses&nbsp;PDO::query()&nbsp;&nbsp;&nbsp;&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a57"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@uses&nbsp;PDO::errorInfo()</font></div></li>
+<li><div class="src-line"><a name="a58"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;array,&nbsp;with&nbsp;the&nbsp;datasets</font></div></li>
+<li><div class="src-line"><a name="a59"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a60"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public</font>&nbsp;<font color="blue">function</font>&nbsp;sqlGet<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>{</strong></font></div></li>
+<li><div class="src-line"><a name="a61"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a62"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;set&nbsp;query</font></font></div></li>
+<li><div class="src-line"><a name="a63"></a><font color="#66cccc"><font color="green"></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$erg</strong>&nbsp;=&nbsp;<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/ConnectDB.html#var$_connid">_connid</a><strong>-&gt;</strong>query<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a64"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a65"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;on&nbsp;error</font></div></li>
+<li><div class="src-line"><a name="a66"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$error_code</strong>=(int)<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/ConnectDB.html#var$_connid">_connid</a><strong>-&gt;</strong>errorCode<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a67"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong><strong>!</strong>empty<strong>(</strong><strong>$error_code</strong><strong>))&nbsp;<font color="#66cccc"></strong><strong>{</strong></font></div></li>
+<li><div class="src-line"><a name="a68"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$arr</strong>&nbsp;=&nbsp;<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/ConnectDB.html#var$_connid">_connid</a><strong>-&gt;</strong>errorInfo<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a69"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print_r<strong>(</strong><strong>$arr</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a70"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<strong>$sql</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a71"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong><strong>$arr</strong><strong>[</strong>1<strong>]</strong>==1146<strong>)</strong></div></li>
+<li><div class="src-line"><a name="a72"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<font color="#66cccc">&quot;&lt;br&nbsp;/&gt;&lt;h4&gt;Dieser&nbsp;Fehler&nbsp;deutet&nbsp;darauf,&nbsp;dass&nbsp;der&nbsp;ET-Chat&nbsp;nicht&nbsp;ordentlich&nbsp;in&nbsp;die&nbsp;Datenbank&nbsp;installiert&nbsp;wurde.</font></div></li>
+<li><div class="src-line"><a name="a73"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lesen&nbsp;Sie&nbsp;bitte&nbsp;dazu&nbsp;die&nbsp;readme.txt&nbsp;und&nbsp;nutzen&nbsp;Sie&nbsp;die&nbsp;&lt;a&nbsp;href=\&quot;install/\&quot;&gt;Installationsroutine&lt;/a&gt;.&lt;/h4&gt;&quot;</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a74"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#66cccc"><strong>}</strong></font></div></li>
+<li><div class="src-line"><a name="a75"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a76"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$resultArray</strong>&nbsp;=&nbsp;<strong>$erg</strong></font><strong>-&gt;</strong>fetchAll<strong>(</strong>PDO<strong>::</strong>FETCH_NUM<strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a77"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a78"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$erg&nbsp;</strong>=&nbsp;null<strong>;</strong></div></li>
+<li><div class="src-line"><a name="a79"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a80"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong><strong>!</strong>isset<strong>(</strong><strong>$resultArray</strong><strong>)&nbsp;</strong>||&nbsp;empty<strong>(</strong><strong>$resultArray</strong><strong>))&nbsp;</strong><font color="blue">return&nbsp;</font>0<strong>;</strong></div></li>
+<li><div class="src-line"><a name="a81"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">return&nbsp;</font><strong>$resultArray</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a82"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#66cccc"><strong>}</strong></font></div></li>
+<li><div class="src-line"><a name="a83"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a84"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;/**</font></div></li>
+<li><div class="src-line"><a name="a85"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;for&nbsp;making&nbsp;sql-manipulation-queries</font></div></li>
+<li><div class="src-line"><a name="a86"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a87"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;&nbsp;string&nbsp;$sql&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a88"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@uses&nbsp;PDO::exec()</font></div></li>
+<li><div class="src-line"><a name="a89"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@uses&nbsp;PDO::errorInfo()</font></div></li>
+<li><div class="src-line"><a name="a90"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@uses&nbsp;PDO::lastInsertId()</font></div></li>
+<li><div class="src-line"><a name="a91"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;int,&nbsp;number&nbsp;of&nbsp;manipulated&nbsp;datasets</font></div></li>
+<li><div class="src-line"><a name="a92"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a93"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public</font>&nbsp;<font color="blue">function</font>&nbsp;sqlSet<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>{</strong></font></div></li>
+<li><div class="src-line"><a name="a94"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a95"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;set&nbsp;query</font></font></div></li>
+<li><div class="src-line"><a name="a96"></a><font color="#66cccc"><font color="green"></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$datasets</strong>&nbsp;=&nbsp;<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/ConnectDB.html#var$_connid">_connid</a><strong>-&gt;</strong>exec<strong>(</strong><strong>$sql</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a97"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a98"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;on&nbsp;error</font></div></li>
+<li><div class="src-line"><a name="a99"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$error_code</strong>=(int)<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/ConnectDB.html#var$_connid">_connid</a><strong>-&gt;</strong>errorCode<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a100"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong><strong>!</strong>empty<strong>(</strong><strong>$error_code</strong><strong>))&nbsp;<font color="#66cccc"></strong><strong>{</strong></font></div></li>
+<li><div class="src-line"><a name="a101"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$arr</strong>&nbsp;=&nbsp;<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/ConnectDB.html#var$_connid">_connid</a><strong>-&gt;</strong>errorInfo<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a102"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print_r<strong>(</strong><strong>$arr</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a103"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<strong>$sql</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a104"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#66cccc"><strong>}</strong></font></div></li>
+<li><div class="src-line"><a name="a105"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a106"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;get&nbsp;last&nbsp;table&nbsp;ID&nbsp;after&nbsp;manipulation</font></font></div></li>
+<li><div class="src-line"><a name="a107"></a><font color="#66cccc"><font color="green"></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/ConnectDB.html#var$lastId">lastId</a>&nbsp;=&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/ConnectDB.html#var$_connid">_connid</a><strong>-&gt;</strong>lastInsertId<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a108"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">return&nbsp;</font><strong>$datasets</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a109"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#66cccc"><strong>}</strong></font></div></li>
+<li><div class="src-line"><a name="a110"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a111"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;/**</font></div></li>
+<li><div class="src-line"><a name="a112"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;close&nbsp;db&nbsp;connection</font></div></li>
+<li><div class="src-line"><a name="a113"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a114"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;void</font></div></li>
+<li><div class="src-line"><a name="a115"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a116"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public</font>&nbsp;<font color="blue">function</font>&nbsp;close<strong>(</strong><strong>)</strong><strong>{</strong></font></div></li>
+<li><div class="src-line"><a name="a117"></a><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/ConnectDB.html#var$_connid">_connid</a>=null<strong>;</strong></div></li>
+<li><div class="src-line"><a name="a118"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#66cccc"><strong>}</strong></font></div></li>
+</ol></div>
+</div>
+	<div id="credit">
+		<hr />
+		Documentation generated on Thu, 05 May 2011 14:05:55 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</div>
+</body>
+</html>

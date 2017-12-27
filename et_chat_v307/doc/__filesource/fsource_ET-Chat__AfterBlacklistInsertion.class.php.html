@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>File Source for AfterBlacklistInsertion.class.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h1 align="center">Source for file AfterBlacklistInsertion.class.php</h1>
+<p>Documentation is available at <a href="../ET-Chat/_AfterBlacklistInsertion.class.php.html">AfterBlacklistInsertion.class.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><strong>&lt;?php</strong></div></li>
+<li><div class="src-line"><a name="a2"></a><font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a3"></a><font color="#009999">&nbsp;*&nbsp;Class&nbsp;AfterBlacklistInsertion,&nbsp;shows&nbsp;the&nbsp;page&nbsp;after&nbsp;the&nbsp;user&nbsp;is&nbsp;inserted&nbsp;into&nbsp;the&nbsp;blacklist</font></div></li>
+<li><div class="src-line"><a name="a4"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a5"></a><font color="#009999">&nbsp;*&nbsp;LICENSE:&nbsp;CREATIVE&nbsp;COMMONS&nbsp;PUBLIC&nbsp;LICENSE&nbsp;&nbsp;&quot;Namensnennung&nbsp;—&nbsp;Nicht-kommerziell&nbsp;2.0&quot;</font></div></li>
+<li><div class="src-line"><a name="a6"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a7"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@copyright</font></strong><font color="#009999">&nbsp;&nbsp;2009&nbsp;&lt;SEDesign&nbsp;/&gt;</font></div></li>
+<li><div class="src-line"><a name="a8"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@license</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;http://creativecommons.org/licenses/by-nc/2.0/de/</font></div></li>
+<li><div class="src-line"><a name="a9"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@version</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;$3.0.6$</font></div></li>
+<li><div class="src-line"><a name="a10"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@link</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.sedesign.de/de_produkte_chat-v3.html</font></div></li>
+<li><div class="src-line"><a name="a11"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@since</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File&nbsp;available&nbsp;since&nbsp;Alpha&nbsp;1.0</font></div></li>
+<li><div class="src-line"><a name="a12"></a><font color="#009999">&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a13"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a14"></a><font color="blue">class&nbsp;</font><a href="../ET-Chat/AfterBlacklistInsertion.html">AfterBlacklistInsertion</a>&nbsp;<font color="blue">extends&nbsp;</font><a href="../ET-Chat/DbConectionMaker.html">DbConectionMaker</a></div></li>
+<li><div class="src-line"><a name="a15"></a><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a16"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a17"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a18"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constructor</font></div></li>
+<li><div class="src-line"><a name="a19"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a20"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;ConnectDB::close()</font></div></li>
+<li><div class="src-line"><a name="a21"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;LangXml&nbsp;object&nbsp;creation</font></div></li>
+<li><div class="src-line"><a name="a22"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;LangXml::getLang()&nbsp;parser&nbsp;method</font></div></li>
+<li><div class="src-line"><a name="a23"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>void&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a24"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a25"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/AfterBlacklistInsertion.html#method__construct">__construct</a>&nbsp;<strong>(</strong><strong>)</strong><strong>{&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a26"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a27"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;call&nbsp;parent&nbsp;Constructor&nbsp;from&nbsp;class&nbsp;DbConectionMaker</font></div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent<strong>::</strong><a href="../ET-Chat/DbConectionMaker.html#method__construct">__construct</a><strong>(</strong><strong>)</strong><strong>;&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a29"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a30"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/session_start">session_start</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a31"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/header">header</a><strong>(</strong><font color="#66cccc">'Cache-Control:&nbsp;no-store,&nbsp;no-cache,&nbsp;must-revalidate,&nbsp;pre-check=0,&nbsp;post-check=0,&nbsp;max-age=0'</font><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a33"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a34"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/DbConectionMaker.html#methodconfigTabData2Session">configTabData2Session</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a35"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a36"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/DbConectionMaker.html#var$dbObj">dbObj</a><strong>-&gt;</strong>close<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a37"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a38"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;create&nbsp;new&nbsp;LangXml&nbsp;Object</font></div></li>
+<li><div class="src-line"><a name="a39"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$langObj&nbsp;</strong>=&nbsp;new&nbsp;<a href="../ET-Chat/LangXml.html">LangXml</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a40"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$lang</strong>=<strong>$langObj</strong><strong>-&gt;</strong>getLang<strong>(</strong><strong>)</strong><strong>-&gt;</strong>admin<strong>[</strong>0<strong>]</strong><strong>-&gt;</strong>blacklist<strong>[</strong>0<strong>]</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a41"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a42"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;initialize&nbsp;template</font></div></li>
+<li><div class="src-line"><a name="a43"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/AfterBlacklistInsertion.html#methodinitTemplate">initTemplate</a><strong>(</strong><strong>$lang</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a44"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a45"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a46"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a47"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Initializer&nbsp;for&nbsp;template</font></div></li>
+<li><div class="src-line"><a name="a48"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a49"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>void&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a50"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a51"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">private&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/AfterBlacklistInsertion.html#methodinitTemplate">initTemplate</a><strong>(</strong><strong>$lang</strong><strong>)</strong><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a52"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;Include&nbsp;Template</font></div></li>
+<li><div class="src-line"><a name="a53"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">include_once</font><strong>(</strong><font color="#66cccc">&quot;styles/&quot;</font>.<strong>$_SESSION</strong><strong>[</strong><font color="#66cccc">'etchat_'</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_prefix">_prefix</a>.<font color="#66cccc">'style'</font><strong>]</strong>.<font color="#66cccc">&quot;/blacklisted.tpl.html&quot;</font><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a54"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a55"></a><strong>}</strong></div></li>
+</ol></div>
+</div>
+	<div id="credit">
+		<hr />
+		Documentation generated on Thu, 05 May 2011 14:05:54 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</div>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class ReloaderMessages</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><!-- Start of Class Data -->
+<h2>
+	Class ReloaderMessages
+</h2> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__ReloaderMessages.class.php.html#a14">14</a></span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+<a href="../ET-Chat/EtChatConfig.html">EtChatConfig</a>
+   |
+   --<a href="../ET-Chat/DbConectionMaker.html">DbConectionMaker</a>
+      |
+      --ReloaderMessages</pre>
+<p>
+	<b><i>Located in File: <a href="_ReloaderMessages.class.php.html">/ReloaderMessages.class.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>Class ReloaderMessages, the AJAX Request for getting and setting new messges,  pull session and more,</h5>
+<div class="desc"><p>LICENSE: CREATIVE COMMONS PUBLIC LICENSE  &quot;Namensnennung — Nicht-kommerziell 2.0&quot;</p></div>
+<ul>
+		<li><strong>version:</strong> - $3.0.7$</li>
+		<li><strong>copyright:</strong> - 2010 &lt;SEDesign /&gt;</li>
+		<li><strong>link:</strong> - <a href="http://www.sedesign.de/de_produkte_chat-v3.html">http://www.sedesign.de/de_produkte_chat-v3.html</a></li>
+		<li><strong>since:</strong> - File available since Alpha 2.0</li>
+		<li><strong>license:</strong> - <a href="http://creativecommons.org/licenses/by-nc/2.0/de/">http://creativecommons.org/licenses/by-nc/2.0/de/</a></li>
+	</ul>
+<br /><hr />
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+</div>
+<div class="tab-page" id="constantsTabpage">
+
+<h2 class="tab">Class Constants</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "constantsTabpage" ) );</script>
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#method__construct" title="details" class="method-name">__construct</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodblockiere" title="details" class="method-name">blockiere</a>
+        (<span class="var-type">int</span>&nbsp;<span class="var-name">$user_id</span>, <span class="var-type">int</span>&nbsp;<span class="var-name">$privat_id</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">bool</span>
+        <a href="#methodcheckKicklist" title="details" class="method-name">checkKicklist</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methoderrorOutput" title="details" class="method-name">errorOutput</a>
+        ([<span class="var-type">string</span>&nbsp;<span class="var-name">$message</span> = <span class="var-default">0</span>])
+        </div>
+    <div class="method-definition">
+            <span class="method-result">Array</span>
+        <a href="#methodgetRoomArray" title="details" class="method-name">getRoomArray</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodmakeJsonOutput" title="details" class="method-name">makeJsonOutput</a>
+        (<span class="var-type">Array</span>&nbsp;<span class="var-name">$feld</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodrefreshUserSession" title="details" class="method-name">refreshUserSession</a>
+        (<span class="var-type">Array</span>&nbsp;<span class="var-name">$user_array</span>, <span class="var-type">Array</span>&nbsp;<span class="var-name">$raum_array</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$user_param_all</span>)
+        </div>
+    <div class="method-definition">
+            <span class="method-result">Array</span>
+        <a href="#methodselectMessagesForTheUser" title="details" class="method-name">selectMessagesForTheUser</a>
+        ()
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="method__construct" id="method__construct"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/Constructor.gif" border="0" /> <strong class="method">Constructor __construct</strong> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__ReloaderMessages.class.php.html#a29">29</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>__construct(
+)</strong></h4>
+
+<p><strong>Overrides :</strong> <a href="../ET-Chat/DbConectionMaker.html#method__construct">DbConectionMaker::__construct()</a> Constructor</p>
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Constructor</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/MessageInserter.html">MessageInserter</a> - object creation</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/MessageInserter.html#var$status">MessageInserter::$status</a> - break if status is &quot;spam&quot;</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodsqlGet">ConnectDB::sqlGet()</a></li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/Blacklist.html#methoduserInBlacklist">Blacklist::userInBlacklist()</a> - checks if in the Blacklist</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/Blacklist.html#methodallowedToAndSetCookie">Blacklist::allowedToAndSetCookie()</a></li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/Blacklist.html#methodkillUserSession">Blacklist::killUserSession()</a></li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/Blacklist.html">Blacklist</a> - object creation</li>
+		</ul>
+</div>
+<a name="methodblockiere" id="methodblockiere"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method blockiere</strong> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__ReloaderMessages.class.php.html#a310">310</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>blockiere(
+int
+$user_id, int
+$privat_id)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Blocking if the opponent user that is in the blocklist of user own session</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>int $user_id</strong>: </li>
+			<li><strong>int $privat_id</strong>: </li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - private</li>
+		</ul>
+</div>
+<a name="methodcheckKicklist" id="methodcheckKicklist"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method checkKicklist</strong> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__ReloaderMessages.class.php.html#a219">219</a></span>)
+ </h4> 
+<h4><i>bool</i> <strong>checkKicklist(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Checks if the user is in the kicklist now</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - private</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodsqlSet">ConnectDB::sqlSet()</a></li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodsqlGet">ConnectDB::sqlGet()</a></li>
+		</ul>
+</div>
+<a name="methoderrorOutput" id="methoderrorOutput"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method errorOutput</strong> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__ReloaderMessages.class.php.html#a245">245</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>errorOutput(
+[string
+$message = 0])</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Print a error message, and close db connect</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>string $message</strong>: Outputmessage, usualy &quot;0&quot; (if any error)</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - private</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodclose">ConnectDB::close()</a></li>
+		</ul>
+</div>
+<a name="methodgetRoomArray" id="methodgetRoomArray"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method getRoomArray</strong> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__ReloaderMessages.class.php.html#a190">190</a></span>)
+ </h4> 
+<h4><i>Array</i> <strong>getRoomArray(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Get all room from DB with all information</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - private</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/RoomAllowed.html#var$room_status">RoomAllowed::$room_status</a> - if the room is open/closed/pw-protected</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/RoomAllowed.html">RoomAllowed</a></li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodsqlGet">ConnectDB::sqlGet()</a></li>
+		</ul>
+</div>
+<a name="methodmakeJsonOutput" id="methodmakeJsonOutput"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method makeJsonOutput</strong> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__ReloaderMessages.class.php.html#a94">94</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>makeJsonOutput(
+Array
+$feld)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Creates the JSON-Output for AJAX-Request</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>Array $feld</strong>: this array contains the messages to be transmitted to the user</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - private</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/StaticMethods.html#methodfiltering">StaticMethods::filtering()</a></li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodsqlGet">ConnectDB::sqlGet()</a></li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodclose">ConnectDB::close()</a></li>
+		</ul>
+</div>
+<a name="methodrefreshUserSession" id="methodrefreshUserSession"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method refreshUserSession</strong> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__ReloaderMessages.class.php.html#a149">149</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>refreshUserSession(
+Array
+$user_array, Array
+$raum_array, String
+$user_param_all)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Every pull refreshes the user data in the session table, etchat_useronline</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>Array $user_array</strong>: requested data from user table</li>
+			<li><strong>Array $raum_array</strong>: requested data from room table</li>
+			<li><strong>String $user_param_all</strong>: User IP data for Blacklist</li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - private</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodsqlSet">ConnectDB::sqlSet()</a></li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodsqlGet">ConnectDB::sqlGet()</a></li>
+		</ul>
+</div>
+<a name="methodselectMessagesForTheUser" id="methodselectMessagesForTheUser"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method selectMessagesForTheUser</strong> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__ReloaderMessages.class.php.html#a258">258</a></span>)
+ </h4> 
+<h4><i>Array</i> <strong>selectMessagesForTheUser(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Creates a dataset with all needed messages for the user</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - private</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodsqlSet">ConnectDB::sqlSet()</a></li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodsqlGet">ConnectDB::sqlGet()</a></li>
+		</ul>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script></div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../ET-Chat/DbConectionMaker.html">DbConectionMaker</a></h4>
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/DbConectionMaker.html#var$dbObj">DbConectionMaker::$dbObj</a></strong> - Database connection obj for all inherited classes
+	</h4> 
+			<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../ET-Chat/EtChatConfig.html">EtChatConfig</a></h4>
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_allowed_privates_in_chat_win">EtChatConfig::$_allowed_privates_in_chat_win</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_allowed_privates_in_separate_win">EtChatConfig::$_allowed_privates_in_separate_win</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_allow_nick_registration">EtChatConfig::$_allow_nick_registration</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_database">EtChatConfig::$_database</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_interval_for_inactivity">EtChatConfig::$_interval_for_inactivity</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_limit_logins_in_three_minutes">EtChatConfig::$_limit_logins_in_three_minutes</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_messages_shown_on_entrance">EtChatConfig::$_messages_shown_on_entrance</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_prefix">EtChatConfig::$_prefix</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_show_history_all_user">EtChatConfig::$_show_history_all_user</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_sqlhost">EtChatConfig::$_sqlhost</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_sqlpass">EtChatConfig::$_sqlpass</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_sqluser">EtChatConfig::$_sqluser</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_usedDatabase">EtChatConfig::$_usedDatabase</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_usedDatabaseExtension">EtChatConfig::$_usedDatabaseExtension</a></strong> - 
+	</h4> 
+		</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../ET-Chat/DbConectionMaker.html">DbConectionMaker</a></h4>
+				<h4>
+<img src="../media/images/Constructor.gif" border="0" /><strong class="method"> <a href="../ET-Chat/DbConectionMaker.html#method__construct">DbConectionMaker::__construct()</a></strong> - Constructor
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../ET-Chat/DbConectionMaker.html#methodconfigTabData2Session">DbConectionMaker::configTabData2Session()</a></strong> - Sets the session vars in the chatsession from the etchat_config table  this function has only be run once at the beginning to get all needed params to the user session.
+		</h4> 
+
+				<br />
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../ET-Chat/EtChatConfig.html">EtChatConfig</a></h4>
+				<h4>
+<img src="../media/images/Constructor.gif" border="0" /><strong class="method"> <a href="../ET-Chat/EtChatConfig.html#method__construct">EtChatConfig::__construct()</a></strong> - Constructor
+		</h4> 
+
+				<br />
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Thu, 05 May 2011 14:05:58 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</div>
+</body>
+</html>

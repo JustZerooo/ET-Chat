@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+	<title>Neuen Smilie anlegen</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="styles/<?php echo $_SESSION['etchat_'.$this->_prefix.'style']; ?>/style.css" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript">
+function chkFormular () {
+  if (document.Formular.smiliefile.value == "") {
+    alert("No file!");
+    document.Formular.smiliefile.focus();
+    return false;
+  }
+  if (document.Formular.sign.value == "") {
+    alert("No sign!");
+    document.Formular.sign.focus();
+    return false;
+  }
+ }
+</script>
+
+
+</head>
+<body id="adminbereich_body">
+<?php
+echo "<a href=\"./?AdminIndex\"><<< ".$lang->backlink[0]->tagData."</a>
+<hr size=\"1\">";
+echo "<table width='75%'>";
+echo"<tr>";
+echo "<td>";
+echo "<form name='Formular' enctype='multipart/form-data' action='./?AdminInsertSmilies' method='post' onsubmit='return chkFormular()'>";
+echo "<input type='hidden' name='MAX_FILE_SIZE' value='30000'>";
+echo "".$lang->file[0]->tagData."";
+echo "</td><td>";
+echo "<input name='smiliefile' type='file'>";
+echo "</td></tr>";
+echo "<tr><td>";
+echo "".$lang->file[1]->tagData."";
+echo "</td><td>";
+echo "<input type='text' name='sign'>";
+echo "</td></tr>"; 
+echo "<tr><td>";
+echo "&nbsp;</td><td>";
+echo "<input name='submit' type='submit' value='".$lang->create[0]->tagData."'>";
+echo"</form>";
+echo "</td></tr>";
+echo "</td></tr></table>";
+echo "<a href=\"./?AdminSmiliesIndex\">&lt;&lt;&lt;</a>";
+?>
+</body>
+</html>

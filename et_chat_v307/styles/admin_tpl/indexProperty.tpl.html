@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+	<title>Einstellungen</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="styles/<?php echo $_SESSION['etchat_'.$this->_prefix.'style']; ?>/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body id="adminbereich_body">
+<?php
+
+echo "<a href=\"./?AdminIndex\"><<< ".$lang->backlink[0]->tagData."</a><hr size=\"1\">";
+echo "<form action=\"./?AdminUpdateConfigTab\" method=\"post\">";
+echo $lang->anz[0]->tagData."<br /><input type=\"Text\" name=\"anz_mess\" value=\"".$_SESSION['etchat_'.$this->_prefix.'anz_messages_im_chat']."\"><br /><br />";
+echo $lang->dbsets[0]->tagData."<br /><input type=\"Text\" name=\"loeschen_nach\" size=\"3\" value=\"".$_SESSION['etchat_'.$this->_prefix.'loeschen_nach']."\"> ".$lang->time[0]->tagData."<br /><br />";
+echo $lang->reload[0]->tagData."<br /><input type=\"Text\" name=\"reload\" value=\"".$_SESSION['etchat_'.$this->_prefix.'config_reloadsequenz']."\"><br /><br />";
+echo $lang->style[0]->tagData."<br /><select name=\"style\" size=\"1\">";
+echo $print_styles;
+echo "</select><br /><br />";
+echo $lang->lang[0]->tagData."<br />\n<select name=\"lang\" size=\"1\">";
+echo $print_lang_files;
+echo "</select><br /><br />";
+echo "<input type=\"Submit\" name=\"\" value=\"OK\">";
+echo "<br /><hr><br />".$lang->note[0]->tagData;
+echo "</form>";
+
+?>
+</body>
+</html>

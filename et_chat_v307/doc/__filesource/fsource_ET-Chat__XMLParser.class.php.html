@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>File Source for XMLParser.class.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h1 align="center">Source for file XMLParser.class.php</h1>
+<p>Documentation is available at <a href="../ET-Chat/_XMLParser.class.php.html">XMLParser.class.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><strong>&lt;?php</strong></div></li>
+<li><div class="src-line"><a name="a2"></a><font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a3"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;free&nbsp;software;&nbsp;you&nbsp;can&nbsp;redistribute&nbsp;it&nbsp;and/or&nbsp;modify</font></div></li>
+<li><div class="src-line"><a name="a4"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;as&nbsp;published&nbsp;by</font></div></li>
+<li><div class="src-line"><a name="a5"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;Free&nbsp;Software&nbsp;Foundation;&nbsp;either&nbsp;version&nbsp;2&nbsp;of&nbsp;the&nbsp;License,&nbsp;or</font></div></li>
+<li><div class="src-line"><a name="a6"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;(at&nbsp;your&nbsp;option)&nbsp;any&nbsp;later&nbsp;version.</font></div></li>
+<li><div class="src-line"><a name="a7"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a8"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;program&nbsp;is&nbsp;distributed&nbsp;in&nbsp;the&nbsp;hope&nbsp;that&nbsp;it&nbsp;will&nbsp;be&nbsp;useful,</font></div></li>
+<li><div class="src-line"><a name="a9"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;but&nbsp;WITHOUT&nbsp;ANY&nbsp;WARRANTY;&nbsp;without&nbsp;even&nbsp;the&nbsp;implied&nbsp;warranty&nbsp;of</font></div></li>
+<li><div class="src-line"><a name="a10"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;MERCHANTABILITY&nbsp;or&nbsp;FITNESS&nbsp;FOR&nbsp;A&nbsp;PARTICULAR&nbsp;PURPOSE.&nbsp;&nbsp;See&nbsp;the</font></div></li>
+<li><div class="src-line"><a name="a11"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;GNU&nbsp;General&nbsp;Public&nbsp;License&nbsp;for&nbsp;more&nbsp;details.</font></div></li>
+<li><div class="src-line"><a name="a12"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a13"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;support,&nbsp;please&nbsp;visit&nbsp;http://www.criticaldevelopment.net/xml/</font></div></li>
+<li><div class="src-line"><a name="a14"></a><font color="#009999">*/</font></div></li>
+<li><div class="src-line"><a name="a15"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a16"></a><font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a17"></a><font color="#009999">&nbsp;*&nbsp;XML&nbsp;Parser&nbsp;Class&nbsp;(php5)</font></div></li>
+<li><div class="src-line"><a name="a18"></a><font color="#009999">&nbsp;*&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a19"></a><font color="#009999">&nbsp;*&nbsp;Parses&nbsp;an&nbsp;XML&nbsp;document&nbsp;into&nbsp;an&nbsp;object&nbsp;structure&nbsp;much&nbsp;like&nbsp;the&nbsp;SimpleXML&nbsp;extension.</font></div></li>
+<li><div class="src-line"><a name="a20"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a21"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@author</font></strong><font color="#009999">&nbsp;Adam&nbsp;A.&nbsp;Flynn&nbsp;&lt;adamaflynn@criticaldevelopment.net&gt;</font></div></li>
+<li><div class="src-line"><a name="a22"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@copyright</font></strong><font color="#009999">&nbsp;Copyright&nbsp;(c)&nbsp;2005-2007,&nbsp;Adam&nbsp;A.&nbsp;Flynn</font></div></li>
+<li><div class="src-line"><a name="a23"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a24"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@version</font></strong><font color="#009999">&nbsp;1.3.0</font></div></li>
+<li><div class="src-line"><a name="a25"></a><font color="#009999">&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a26"></a><font color="blue">class&nbsp;</font><a href="../ET-Chat/XMLParser.html">XMLParser</a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a27"></a><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a29"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;XML&nbsp;parser</font></div></li>
+<li><div class="src-line"><a name="a30"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a31"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>resource&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a32"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a33"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">private&nbsp;</font><a href="../ET-Chat/XMLParser.html#var$parser">$parser</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a34"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a35"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a36"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;XML&nbsp;document</font></div></li>
+<li><div class="src-line"><a name="a37"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a38"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>string&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a39"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a40"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">private&nbsp;</font><a href="../ET-Chat/XMLParser.html#var$xml">$xml</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a41"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a42"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a43"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Document&nbsp;tag</font></div></li>
+<li><div class="src-line"><a name="a44"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a45"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>object&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a46"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a47"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><a href="../ET-Chat/XMLParser.html#var$document">$document</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a48"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a49"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a50"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Current&nbsp;object&nbsp;depth</font></div></li>
+<li><div class="src-line"><a name="a51"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a52"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>array&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a53"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a54"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">private&nbsp;</font><a href="../ET-Chat/XMLParser.html#var$stack">$stack</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a55"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a57"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Whether&nbsp;or&nbsp;not&nbsp;to&nbsp;replace&nbsp;dashes&nbsp;and&nbsp;colons&nbsp;in&nbsp;tag</font></div></li>
+<li><div class="src-line"><a name="a58"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;names&nbsp;with&nbsp;underscores.</font></div></li>
+<li><div class="src-line"><a name="a59"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a60"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>bool&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a61"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a62"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">private&nbsp;</font><a href="../ET-Chat/XMLParser.html#var$cleanTagNames">$cleanTagNames</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a63"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a64"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a65"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a66"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constructor.&nbsp;Loads&nbsp;XML&nbsp;document.</font></div></li>
+<li><div class="src-line"><a name="a67"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a68"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>string&nbsp;</em><strong>$xml&nbsp;</strong><font color="#009999">The&nbsp;string&nbsp;of&nbsp;the&nbsp;XML&nbsp;document</font></div></li>
+<li><div class="src-line"><a name="a69"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>XMLParser&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a70"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a71"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">function&nbsp;</font><a href="../ET-Chat/XMLParser.html#method__construct">__construct</a><strong>(</strong><strong>$xml&nbsp;</strong>=&nbsp;<font color="#66cccc">''</font><strong>,&nbsp;</strong><strong>$cleanTagNames&nbsp;</strong>=&nbsp;true<strong>)</strong></div></li>
+<li><div class="src-line"><a name="a72"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a73"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Load&nbsp;XML&nbsp;document</font></div></li>
+<li><div class="src-line"><a name="a74"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$xml">xml</a>&nbsp;=&nbsp;<strong>$xml</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a75"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a76"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Set&nbsp;stack&nbsp;to&nbsp;an&nbsp;array</font></div></li>
+<li><div class="src-line"><a name="a77"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$stack">stack</a>&nbsp;=&nbsp;array<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a78"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a79"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Set&nbsp;whether&nbsp;or&nbsp;not&nbsp;to&nbsp;clean&nbsp;tag&nbsp;names</font></div></li>
+<li><div class="src-line"><a name="a80"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$cleanTagNames">cleanTagNames</a>&nbsp;=&nbsp;<strong>$cleanTagNames</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a81"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a82"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a83"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a84"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Initiates&nbsp;and&nbsp;runs&nbsp;PHP's&nbsp;XML&nbsp;parser</font></div></li>
+<li><div class="src-line"><a name="a85"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a86"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/XMLParser.html#methodParse">Parse</a><strong>(</strong><strong>)</strong></div></li>
+<li><div class="src-line"><a name="a87"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a88"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Create&nbsp;the&nbsp;parser&nbsp;resource</font></div></li>
+<li><div class="src-line"><a name="a89"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$parser">parser</a>&nbsp;=&nbsp;<a href="http://www.php.net/xml_parser_create">xml_parser_create</a><strong>(</strong><font color="#66cccc">&quot;UTF-8&quot;</font><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a90"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a91"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Set&nbsp;the&nbsp;handlers</font></div></li>
+<li><div class="src-line"><a name="a92"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/xml_set_object">xml_set_object</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$parser">parser</a><strong>,&nbsp;</strong><strong>$this</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a93"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/xml_set_element_handler">xml_set_element_handler</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$parser">parser</a><strong>,&nbsp;</strong><font color="#66cccc">'StartElement'</font><strong>,&nbsp;</strong><font color="#66cccc">'EndElement'</font><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a94"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/xml_set_character_data_handler">xml_set_character_data_handler</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$parser">parser</a><strong>,&nbsp;</strong><font color="#66cccc">'CharacterData'</font><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a95"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a96"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Error&nbsp;handling</font></div></li>
+<li><div class="src-line"><a name="a97"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong><strong>!</strong><a href="http://www.php.net/xml_parse">xml_parse</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$parser">parser</a><strong>,&nbsp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$xml">xml</a><strong>))</strong></div></li>
+<li><div class="src-line"><a name="a98"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#methodHandleError">HandleError</a><strong>(</strong><a href="http://www.php.net/xml_get_error_code">xml_get_error_code</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$parser">parser</a><strong>)</strong><strong>,&nbsp;</strong><a href="http://www.php.net/xml_get_current_line_number">xml_get_current_line_number</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$parser">parser</a><strong>)</strong><strong>,&nbsp;</strong><a href="http://www.php.net/xml_get_current_column_number">xml_get_current_column_number</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$parser">parser</a><strong>))</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a99"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a100"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Free&nbsp;the&nbsp;parser</font></div></li>
+<li><div class="src-line"><a name="a101"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/xml_parser_free">xml_parser_free</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$parser">parser</a><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a102"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a103"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a104"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a105"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Handles&nbsp;an&nbsp;XML&nbsp;parsing&nbsp;error</font></div></li>
+<li><div class="src-line"><a name="a106"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a107"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>int&nbsp;</em><strong>$code&nbsp;</strong><font color="#009999">XML&nbsp;Error&nbsp;Code</font></div></li>
+<li><div class="src-line"><a name="a108"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>int&nbsp;</em><strong>$line&nbsp;</strong><font color="#009999">Line&nbsp;on&nbsp;which&nbsp;the&nbsp;error&nbsp;happened</font></div></li>
+<li><div class="src-line"><a name="a109"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>int&nbsp;</em><strong>$col&nbsp;</strong><font color="#009999">Column&nbsp;on&nbsp;which&nbsp;the&nbsp;error&nbsp;happened</font></div></li>
+<li><div class="src-line"><a name="a110"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a111"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">private&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/XMLParser.html#methodHandleError">HandleError</a><strong>(</strong><strong>$code</strong><strong>,&nbsp;</strong><strong>$line</strong><strong>,&nbsp;</strong><strong>$col</strong><strong>)</strong></div></li>
+<li><div class="src-line"><a name="a112"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a113"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/trigger_error">trigger_error</a><strong>(</strong><font color="#66cccc">'XML&nbsp;Parsing&nbsp;Error&nbsp;at&nbsp;'</font>.<strong>$line</strong>.<font color="#66cccc">':'</font>.<strong>$col</strong>.<font color="#66cccc">'.&nbsp;Error&nbsp;'</font>.<strong>$code</strong>.<font color="#66cccc">':&nbsp;'</font>.<a href="http://www.php.net/xml_error_string">xml_error_string</a><strong>(</strong><strong>$code</strong><strong>))</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a114"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a115"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a116"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a117"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a118"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Gets&nbsp;the&nbsp;XML&nbsp;output&nbsp;of&nbsp;the&nbsp;PHP&nbsp;structure&nbsp;within&nbsp;$this-&gt;document</font></div></li>
+<li><div class="src-line"><a name="a119"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a120"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>string&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a121"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a122"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/XMLParser.html#methodGenerateXML">GenerateXML</a><strong>(</strong><strong>)</strong></div></li>
+<li><div class="src-line"><a name="a123"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a124"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">return&nbsp;</font><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$document">document</a><strong>-&gt;</strong>GetXML<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a125"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a126"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a127"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a128"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Gets&nbsp;the&nbsp;reference&nbsp;to&nbsp;the&nbsp;current&nbsp;direct&nbsp;parent</font></div></li>
+<li><div class="src-line"><a name="a129"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a130"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>object&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a131"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a132"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">private&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/XMLParser.html#methodGetStackLocation">GetStackLocation</a><strong>(</strong><strong>)</strong></div></li>
+<li><div class="src-line"><a name="a133"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a134"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Returns&nbsp;the&nbsp;reference&nbsp;to&nbsp;the&nbsp;current&nbsp;direct&nbsp;parent</font></div></li>
+<li><div class="src-line"><a name="a135"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">return&nbsp;</font><a href="http://www.php.net/end">end</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$stack">stack</a><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a136"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a137"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a138"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a139"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Handler&nbsp;function&nbsp;for&nbsp;the&nbsp;start&nbsp;of&nbsp;a&nbsp;tag</font></div></li>
+<li><div class="src-line"><a name="a140"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a141"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>resource&nbsp;</em><strong>$parser&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a142"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>string&nbsp;</em><strong>$name&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a143"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>array&nbsp;</em><strong>$attrs&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a144"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a145"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">private&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/XMLParser.html#methodStartElement">StartElement</a><strong>(</strong><strong>$parser</strong><strong>,&nbsp;</strong><strong>$name</strong><strong>,&nbsp;</strong><strong>$attrs&nbsp;</strong>=&nbsp;array<strong>(</strong><strong>))</strong></div></li>
+<li><div class="src-line"><a name="a146"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a147"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Make&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;tag&nbsp;lower&nbsp;case</font></div></li>
+<li><div class="src-line"><a name="a148"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$name&nbsp;</strong>=&nbsp;<a href="http://www.php.net/strtolower">strtolower</a><strong>(</strong><strong>$name</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a149"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a150"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Check&nbsp;to&nbsp;see&nbsp;if&nbsp;tag&nbsp;is&nbsp;root-level</font></div></li>
+<li><div class="src-line"><a name="a151"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong><a href="http://www.php.net/count">count</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$stack">stack</a><strong>)&nbsp;</strong>==&nbsp;0<strong>)&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a152"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a153"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//If&nbsp;so,&nbsp;set&nbsp;the&nbsp;document&nbsp;as&nbsp;the&nbsp;current&nbsp;tag</font></div></li>
+<li><div class="src-line"><a name="a154"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$document">document</a>&nbsp;=&nbsp;new&nbsp;<a href="../ET-Chat/XMLTag.html">XMLTag</a><strong>(</strong><strong>$name</strong><strong>,&nbsp;</strong><strong>$attrs</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a155"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a156"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//And&nbsp;start&nbsp;out&nbsp;the&nbsp;stack&nbsp;with&nbsp;the&nbsp;document&nbsp;tag</font></div></li>
+<li><div class="src-line"><a name="a157"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$stack">stack</a>&nbsp;=&nbsp;array<strong>(</strong><strong>&amp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$document">document</a><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a158"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a159"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//If&nbsp;it&nbsp;isn't&nbsp;root&nbsp;level,&nbsp;use&nbsp;the&nbsp;stack&nbsp;to&nbsp;find&nbsp;the&nbsp;parent</font></div></li>
+<li><div class="src-line"><a name="a160"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</div></li>
+<li><div class="src-line"><a name="a161"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a162"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Get&nbsp;the&nbsp;reference&nbsp;to&nbsp;the&nbsp;current&nbsp;direct&nbsp;parent</font></div></li>
+<li><div class="src-line"><a name="a163"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$parent&nbsp;</strong>=&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#methodGetStackLocation">GetStackLocation</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a164"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a165"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$parent</strong><strong>-&gt;</strong>AddChild<strong>(</strong><strong>$name</strong><strong>,&nbsp;</strong><strong>$attrs</strong><strong>,&nbsp;</strong><a href="http://www.php.net/count">count</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$stack">stack</a><strong>)</strong><strong>,&nbsp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$cleanTagNames">cleanTagNames</a><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a166"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a167"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//If&nbsp;the&nbsp;cleanTagName&nbsp;feature&nbsp;is&nbsp;on,&nbsp;clean&nbsp;the&nbsp;tag&nbsp;names</font></div></li>
+<li><div class="src-line"><a name="a168"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$cleanTagNames">cleanTagNames</a><strong>)</strong></div></li>
+<li><div class="src-line"><a name="a169"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$name&nbsp;</strong>=&nbsp;<a href="http://www.php.net/str_replace">str_replace</a><strong>(</strong>array<strong>(</strong><font color="#66cccc">':'</font><strong>,&nbsp;</strong><font color="#66cccc">'-'</font><strong>)</strong><strong>,&nbsp;</strong><font color="#66cccc">'_'</font><strong>,&nbsp;</strong><strong>$name</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a170"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a171"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Update&nbsp;the&nbsp;stack</font></div></li>
+<li><div class="src-line"><a name="a172"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$stack">stack</a><strong>[</strong><strong>]&nbsp;</strong>=&nbsp;<a href="http://www.php.net/end">end</a><strong>(</strong><strong>$parent</strong><strong>-&gt;</strong><strong>$name</strong><strong>)</strong><strong>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a173"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a174"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a175"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a176"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a177"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Handler&nbsp;function&nbsp;for&nbsp;the&nbsp;end&nbsp;of&nbsp;a&nbsp;tag</font></div></li>
+<li><div class="src-line"><a name="a178"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a179"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>resource&nbsp;</em><strong>$parser&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a180"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>string&nbsp;</em><strong>$name&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a181"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a182"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">private&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/XMLParser.html#methodEndElement">EndElement</a><strong>(</strong><strong>$parser</strong><strong>,&nbsp;</strong><strong>$name</strong><strong>)</strong></div></li>
+<li><div class="src-line"><a name="a183"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a184"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Update&nbsp;stack&nbsp;by&nbsp;removing&nbsp;the&nbsp;end&nbsp;value&nbsp;from&nbsp;it&nbsp;as&nbsp;the&nbsp;parent</font></div></li>
+<li><div class="src-line"><a name="a185"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/array_pop">array_pop</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#var$stack">stack</a><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a186"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a187"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a188"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a189"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Handler&nbsp;function&nbsp;for&nbsp;the&nbsp;character&nbsp;data&nbsp;within&nbsp;a&nbsp;tag</font></div></li>
+<li><div class="src-line"><a name="a190"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a191"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>resource&nbsp;</em><strong>$parser&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a192"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>string&nbsp;</em><strong>$data&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a193"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a194"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">private&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/XMLParser.html#methodCharacterData">CharacterData</a><strong>(</strong><strong>$parser</strong><strong>,&nbsp;</strong><strong>$data</strong><strong>)</strong></div></li>
+<li><div class="src-line"><a name="a195"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a196"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Get&nbsp;the&nbsp;reference&nbsp;to&nbsp;the&nbsp;current&nbsp;parent&nbsp;object</font></div></li>
+<li><div class="src-line"><a name="a197"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$tag&nbsp;</strong>=&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLParser.html#methodGetStackLocation">GetStackLocation</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a198"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a199"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Assign&nbsp;data&nbsp;to&nbsp;it</font></div></li>
+<li><div class="src-line"><a name="a200"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;ET&nbsp;-----------------------------------------------------</font></div></li>
+<li><div class="src-line"><a name="a201"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;Trim&nbsp;muß&nbsp;weg,&nbsp;da&nbsp;sonst&nbsp;die&nbsp;Leerzeichen&nbsp;vor&nbsp;Umlauten&nbsp;fehlen</font></div></li>
+<li><div class="src-line"><a name="a202"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//$tag-&gt;tagData&nbsp;.=&nbsp;trim($data);</font></div></li>
+<li><div class="src-line"><a name="a203"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$tag</strong><strong>-&gt;</strong>tagData&nbsp;.=&nbsp;<strong>$data</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a204"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a205"></a><strong>}</strong></div></li>
+<li><div class="src-line"><a name="a206"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a207"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a208"></a><font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a209"></a><font color="#009999">&nbsp;*&nbsp;XML&nbsp;Tag&nbsp;Object&nbsp;(php5)</font></div></li>
+<li><div class="src-line"><a name="a210"></a><font color="#009999">&nbsp;*&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a211"></a><font color="#009999">&nbsp;*&nbsp;This&nbsp;object&nbsp;stores&nbsp;all&nbsp;of&nbsp;the&nbsp;direct&nbsp;children&nbsp;of&nbsp;itself&nbsp;in&nbsp;the&nbsp;$children&nbsp;array.&nbsp;They&nbsp;are&nbsp;also&nbsp;stored&nbsp;by</font></div></li>
+<li><div class="src-line"><a name="a212"></a><font color="#009999">&nbsp;*&nbsp;type&nbsp;as&nbsp;arrays.&nbsp;So,&nbsp;if,&nbsp;for&nbsp;example,&nbsp;this&nbsp;tag&nbsp;had&nbsp;2&nbsp;&lt;font&gt;&nbsp;tags&nbsp;as&nbsp;children,&nbsp;there&nbsp;would&nbsp;be&nbsp;a&nbsp;class&nbsp;member</font></div></li>
+<li><div class="src-line"><a name="a213"></a><font color="#009999">&nbsp;*&nbsp;called&nbsp;$font&nbsp;created&nbsp;as&nbsp;an&nbsp;array.&nbsp;$font[0]&nbsp;would&nbsp;be&nbsp;the&nbsp;first&nbsp;font&nbsp;tag,&nbsp;and&nbsp;$font[1]&nbsp;would&nbsp;be&nbsp;the&nbsp;second.</font></div></li>
+<li><div class="src-line"><a name="a214"></a><font color="#009999">&nbsp;*&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a215"></a><font color="#009999">&nbsp;*&nbsp;To&nbsp;loop&nbsp;through&nbsp;all&nbsp;of&nbsp;the&nbsp;direct&nbsp;children&nbsp;of&nbsp;this&nbsp;object,&nbsp;the&nbsp;$children&nbsp;member&nbsp;should&nbsp;be&nbsp;used.</font></div></li>
+<li><div class="src-line"><a name="a216"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a217"></a><font color="#009999">&nbsp;*&nbsp;To&nbsp;loop&nbsp;through&nbsp;all&nbsp;of&nbsp;the&nbsp;direct&nbsp;children&nbsp;of&nbsp;a&nbsp;specific&nbsp;tag&nbsp;for&nbsp;this&nbsp;object,&nbsp;it&nbsp;is&nbsp;probably&nbsp;easier</font></div></li>
+<li><div class="src-line"><a name="a218"></a><font color="#009999">&nbsp;*&nbsp;to&nbsp;use&nbsp;the&nbsp;arrays&nbsp;of&nbsp;the&nbsp;specific&nbsp;tag&nbsp;names,&nbsp;as&nbsp;explained&nbsp;above.</font></div></li>
+<li><div class="src-line"><a name="a219"></a><font color="#009999">&nbsp;*&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a220"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@author</font></strong><font color="#009999">&nbsp;Adam&nbsp;A.&nbsp;Flynn&nbsp;&lt;adamaflynn@criticaldevelopment.net&gt;</font></div></li>
+<li><div class="src-line"><a name="a221"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@copyright</font></strong><font color="#009999">&nbsp;Copyright&nbsp;(c)&nbsp;2005-2007,&nbsp;Adam&nbsp;A.&nbsp;Flynn</font></div></li>
+<li><div class="src-line"><a name="a222"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a223"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@version</font></strong><font color="#009999">&nbsp;1.3.0</font></div></li>
+<li><div class="src-line"><a name="a224"></a><font color="#009999">&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a225"></a><font color="blue">class&nbsp;</font><a href="../ET-Chat/XMLTag.html">XMLTag</a></div></li>
+<li><div class="src-line"><a name="a226"></a><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a227"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a228"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Array&nbsp;with&nbsp;the&nbsp;attributes&nbsp;of&nbsp;this&nbsp;XML&nbsp;tag</font></div></li>
+<li><div class="src-line"><a name="a229"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a230"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>array&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a231"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a232"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><a href="../ET-Chat/XMLTag.html#var$tagAttrs">$tagAttrs</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a233"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a234"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a235"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;tag</font></div></li>
+<li><div class="src-line"><a name="a236"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a237"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>string&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a238"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a239"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><a href="../ET-Chat/XMLTag.html#var$tagName">$tagName</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a240"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a241"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a242"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;data&nbsp;the&nbsp;tag&nbsp;contains</font></div></li>
+<li><div class="src-line"><a name="a243"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a244"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;So,&nbsp;if&nbsp;the&nbsp;tag&nbsp;doesn't&nbsp;contain&nbsp;child&nbsp;tags,&nbsp;and&nbsp;just&nbsp;contains&nbsp;a&nbsp;string,&nbsp;it&nbsp;would&nbsp;go&nbsp;here</font></div></li>
+<li><div class="src-line"><a name="a245"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a246"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>stat&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a247"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a248"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><a href="../ET-Chat/XMLTag.html#var$tagData">$tagData</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a249"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a250"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a251"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Array&nbsp;of&nbsp;references&nbsp;to&nbsp;the&nbsp;objects&nbsp;of&nbsp;all&nbsp;direct&nbsp;children&nbsp;of&nbsp;this&nbsp;XML&nbsp;object</font></div></li>
+<li><div class="src-line"><a name="a252"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a253"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>array&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a254"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a255"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><a href="../ET-Chat/XMLTag.html#var$tagChildren">$tagChildren</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a256"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a257"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a258"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;number&nbsp;of&nbsp;parents&nbsp;this&nbsp;XML&nbsp;object&nbsp;has&nbsp;(number&nbsp;of&nbsp;levels&nbsp;from&nbsp;this&nbsp;tag&nbsp;to&nbsp;the&nbsp;root&nbsp;tag)</font></div></li>
+<li><div class="src-line"><a name="a259"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a260"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Used&nbsp;presently&nbsp;only&nbsp;to&nbsp;set&nbsp;the&nbsp;number&nbsp;of&nbsp;tabs&nbsp;when&nbsp;outputting&nbsp;XML</font></div></li>
+<li><div class="src-line"><a name="a261"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a262"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@var&nbsp;</font></strong><em>int&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a263"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a264"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><a href="../ET-Chat/XMLTag.html#var$tagParents">$tagParents</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a265"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a266"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a267"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constructor,&nbsp;sets&nbsp;up&nbsp;all&nbsp;the&nbsp;default&nbsp;values</font></div></li>
+<li><div class="src-line"><a name="a268"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a269"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>string&nbsp;</em><strong>$name&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a270"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>array&nbsp;</em><strong>$attrs&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a271"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>int&nbsp;</em><strong>$parents&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a272"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>XMLTag&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a273"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a274"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">function&nbsp;</font><a href="../ET-Chat/XMLTag.html#method__construct">__construct</a><strong>(</strong><strong>$name</strong><strong>,&nbsp;</strong><strong>$attrs&nbsp;</strong>=&nbsp;array<strong>(</strong><strong>)</strong><strong>,&nbsp;</strong><strong>$parents&nbsp;</strong>=&nbsp;0<strong>)</strong></div></li>
+<li><div class="src-line"><a name="a275"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a276"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Make&nbsp;the&nbsp;keys&nbsp;of&nbsp;the&nbsp;attr&nbsp;array&nbsp;lower&nbsp;case,&nbsp;and&nbsp;store&nbsp;the&nbsp;value</font></div></li>
+<li><div class="src-line"><a name="a277"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagAttrs">tagAttrs</a>&nbsp;=&nbsp;<a href="http://www.php.net/array_change_key_case">array_change_key_case</a><strong>(</strong><strong>$attrs</strong><strong>,&nbsp;</strong>CASE_LOWER<strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a278"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a279"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Make&nbsp;the&nbsp;name&nbsp;lower&nbsp;case&nbsp;and&nbsp;store&nbsp;the&nbsp;value</font></div></li>
+<li><div class="src-line"><a name="a280"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagName">tagName</a>&nbsp;=&nbsp;<a href="http://www.php.net/strtolower">strtolower</a><strong>(</strong><strong>$name</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a281"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a282"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Set&nbsp;the&nbsp;number&nbsp;of&nbsp;parents</font></div></li>
+<li><div class="src-line"><a name="a283"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagParents">tagParents</a>&nbsp;=&nbsp;<strong>$parents</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a284"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a285"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Set&nbsp;the&nbsp;types&nbsp;for&nbsp;children&nbsp;and&nbsp;data</font></div></li>
+<li><div class="src-line"><a name="a286"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagChildren">tagChildren</a>&nbsp;=&nbsp;array<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a287"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagData">tagData</a>&nbsp;=&nbsp;<font color="#66cccc">''</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a288"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a289"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a290"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a291"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Adds&nbsp;a&nbsp;direct&nbsp;child&nbsp;to&nbsp;this&nbsp;object</font></div></li>
+<li><div class="src-line"><a name="a292"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a293"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>string&nbsp;</em><strong>$name&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a294"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>array&nbsp;</em><strong>$attrs&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a295"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>int&nbsp;</em><strong>$parents&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a296"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>bool&nbsp;</em><strong>$cleanTagName&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a297"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a298"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/XMLTag.html#methodAddChild">AddChild</a><strong>(</strong><strong>$name</strong><strong>,&nbsp;</strong><strong>$attrs</strong><strong>,&nbsp;</strong><strong>$parents</strong><strong>,&nbsp;</strong><strong>$cleanTagName&nbsp;</strong>=&nbsp;true<strong>)</strong></div></li>
+<li><div class="src-line"><a name="a299"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{&nbsp;&nbsp;&nbsp;&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a300"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//If&nbsp;the&nbsp;tag&nbsp;is&nbsp;a&nbsp;reserved&nbsp;name,&nbsp;output&nbsp;an&nbsp;error</font></div></li>
+<li><div class="src-line"><a name="a301"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font><strong>(</strong><a href="http://www.php.net/in_array">in_array</a><strong>(</strong><strong>$name</strong><strong>,&nbsp;</strong>array<strong>(</strong><font color="#66cccc">'tagChildren'</font><strong>,&nbsp;</strong><font color="#66cccc">'tagAttrs'</font><strong>,&nbsp;</strong><font color="#66cccc">'tagParents'</font><strong>,&nbsp;</strong><font color="#66cccc">'tagData'</font><strong>,&nbsp;</strong><font color="#66cccc">'tagName'</font><strong>)))</strong></div></li>
+<li><div class="src-line"><a name="a302"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a303"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/trigger_error">trigger_error</a><strong>(</strong><font color="#66cccc">'You&nbsp;have&nbsp;used&nbsp;a&nbsp;reserved&nbsp;name&nbsp;as&nbsp;the&nbsp;name&nbsp;of&nbsp;an&nbsp;XML&nbsp;tag.&nbsp;Please&nbsp;consult&nbsp;the&nbsp;documentation&nbsp;(http://www.criticaldevelopment.net/xml/)&nbsp;and&nbsp;rename&nbsp;the&nbsp;tag&nbsp;named&nbsp;&quot;'</font>.<strong>$name</strong>.<font color="#66cccc">'&quot;&nbsp;to&nbsp;something&nbsp;other&nbsp;than&nbsp;a&nbsp;reserved&nbsp;name.'</font><strong>,&nbsp;</strong>E_USER_ERROR<strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a304"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a305"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">return</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a306"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a307"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a308"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Create&nbsp;the&nbsp;child&nbsp;object&nbsp;itself</font></div></li>
+<li><div class="src-line"><a name="a309"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$child&nbsp;</strong>=&nbsp;new&nbsp;<a href="../ET-Chat/XMLTag.html">XMLTag</a><strong>(</strong><strong>$name</strong><strong>,&nbsp;</strong><strong>$attrs</strong><strong>,&nbsp;</strong><strong>$parents</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a310"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a311"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//If&nbsp;the&nbsp;cleanTagName&nbsp;feature&nbsp;is&nbsp;on,&nbsp;replace&nbsp;colons&nbsp;and&nbsp;dashes&nbsp;with&nbsp;underscores</font></div></li>
+<li><div class="src-line"><a name="a312"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font><strong>(</strong><strong>$cleanTagName</strong><strong>)</strong></div></li>
+<li><div class="src-line"><a name="a313"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$name&nbsp;</strong>=&nbsp;<a href="http://www.php.net/str_replace">str_replace</a><strong>(</strong>array<strong>(</strong><font color="#66cccc">':'</font><strong>,&nbsp;</strong><font color="#66cccc">'-'</font><strong>)</strong><strong>,&nbsp;</strong><font color="#66cccc">'_'</font><strong>,&nbsp;</strong><strong>$name</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a314"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a315"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Toss&nbsp;up&nbsp;a&nbsp;notice&nbsp;if&nbsp;someone's&nbsp;trying&nbsp;to&nbsp;to&nbsp;use&nbsp;a&nbsp;colon&nbsp;or&nbsp;dash&nbsp;in&nbsp;a&nbsp;tag&nbsp;name</font></div></li>
+<li><div class="src-line"><a name="a316"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elseif<strong>(</strong><a href="http://www.php.net/strstr">strstr</a><strong>(</strong><strong>$name</strong><strong>,&nbsp;</strong><font color="#66cccc">':'</font><strong>)&nbsp;</strong>||&nbsp;<a href="http://www.php.net/strstr">strstr</a><strong>(</strong><strong>$name</strong><strong>,&nbsp;</strong><font color="#66cccc">'-'</font><strong>))</strong></div></li>
+<li><div class="src-line"><a name="a317"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/trigger_error">trigger_error</a><strong>(</strong><font color="#66cccc">'Your&nbsp;tag&nbsp;named&nbsp;&quot;'</font>.<strong>$name</strong>.<font color="#66cccc">'&quot;&nbsp;contains&nbsp;either&nbsp;a&nbsp;dash&nbsp;or&nbsp;a&nbsp;colon.&nbsp;Neither&nbsp;of&nbsp;these&nbsp;characters&nbsp;are&nbsp;friendly&nbsp;with&nbsp;PHP&nbsp;variable&nbsp;names,&nbsp;and,&nbsp;as&nbsp;such,&nbsp;you&nbsp;may&nbsp;have&nbsp;difficulty&nbsp;accessing&nbsp;them.&nbsp;You&nbsp;might&nbsp;want&nbsp;to&nbsp;think&nbsp;about&nbsp;enabling&nbsp;the&nbsp;cleanTagName&nbsp;feature&nbsp;(pass&nbsp;true&nbsp;as&nbsp;the&nbsp;second&nbsp;argument&nbsp;of&nbsp;the&nbsp;XMLParser&nbsp;constructor).&nbsp;For&nbsp;more&nbsp;details,&nbsp;see&nbsp;http://www.criticaldevelopment.net/xml/'</font><strong>,&nbsp;</strong>E_USER_NOTICE<strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a318"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a319"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//If&nbsp;there&nbsp;is&nbsp;no&nbsp;array&nbsp;already&nbsp;set&nbsp;for&nbsp;the&nbsp;tag&nbsp;name&nbsp;being&nbsp;added,&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a320"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//create&nbsp;an&nbsp;empty&nbsp;array&nbsp;for&nbsp;it</font></div></li>
+<li><div class="src-line"><a name="a321"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font><strong>(</strong><strong>!</strong>isset<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><strong>$name</strong><strong>))</strong></div></li>
+<li><div class="src-line"><a name="a322"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><strong>$name&nbsp;</strong>=&nbsp;array<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a323"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a324"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Add&nbsp;the&nbsp;reference&nbsp;of&nbsp;it&nbsp;to&nbsp;the&nbsp;end&nbsp;of&nbsp;an&nbsp;array&nbsp;member&nbsp;named&nbsp;for&nbsp;the&nbsp;tag's&nbsp;name</font></div></li>
+<li><div class="src-line"><a name="a325"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><strong>{</strong><strong>$name</strong><strong>}</strong><strong>[</strong><strong>]&nbsp;</strong>=&nbsp;<strong>&amp;</strong><strong>$child</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a326"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a327"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Add&nbsp;the&nbsp;reference&nbsp;to&nbsp;the&nbsp;children&nbsp;array&nbsp;member</font></div></li>
+<li><div class="src-line"><a name="a328"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong>tagChildren<strong>[</strong><strong>]&nbsp;</strong>=&nbsp;<strong>&amp;</strong><strong>$child</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a329"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a330"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Return&nbsp;a&nbsp;reference&nbsp;to&nbsp;this&nbsp;object&nbsp;for&nbsp;the&nbsp;stack</font></div></li>
+<li><div class="src-line"><a name="a331"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">return&nbsp;</font><strong>$this</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a332"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a333"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a334"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a335"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Returns&nbsp;the&nbsp;string&nbsp;of&nbsp;the&nbsp;XML&nbsp;document&nbsp;which&nbsp;would&nbsp;be&nbsp;generated&nbsp;from&nbsp;this&nbsp;object</font></div></li>
+<li><div class="src-line"><a name="a336"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a337"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;function&nbsp;works&nbsp;recursively,&nbsp;so&nbsp;it&nbsp;gets&nbsp;the&nbsp;XML&nbsp;of&nbsp;itself&nbsp;and&nbsp;all&nbsp;of&nbsp;its&nbsp;children,&nbsp;which</font></div></li>
+<li><div class="src-line"><a name="a338"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;in&nbsp;turn&nbsp;gets&nbsp;the&nbsp;XML&nbsp;of&nbsp;all&nbsp;their&nbsp;children,&nbsp;which&nbsp;in&nbsp;turn&nbsp;gets&nbsp;the&nbsp;XML&nbsp;of&nbsp;all&nbsp;thier&nbsp;children,</font></div></li>
+<li><div class="src-line"><a name="a339"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;and&nbsp;so&nbsp;on.&nbsp;So,&nbsp;if&nbsp;you&nbsp;call&nbsp;GetXML&nbsp;from&nbsp;the&nbsp;document&nbsp;root&nbsp;object,&nbsp;it&nbsp;will&nbsp;return&nbsp;a&nbsp;string&nbsp;for</font></div></li>
+<li><div class="src-line"><a name="a340"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;the&nbsp;XML&nbsp;of&nbsp;the&nbsp;entire&nbsp;document.</font></div></li>
+<li><div class="src-line"><a name="a341"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a342"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;This&nbsp;function&nbsp;does&nbsp;not,&nbsp;however,&nbsp;return&nbsp;a&nbsp;DTD&nbsp;or&nbsp;an&nbsp;XML&nbsp;version/encoding&nbsp;tag.&nbsp;That&nbsp;should&nbsp;be</font></div></li>
+<li><div class="src-line"><a name="a343"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;handled&nbsp;by&nbsp;XMLParser::GetXML()</font></div></li>
+<li><div class="src-line"><a name="a344"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a345"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>string&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a346"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a347"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/XMLTag.html#methodGetXML">GetXML</a><strong>(</strong><strong>)</strong></div></li>
+<li><div class="src-line"><a name="a348"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a349"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Start&nbsp;a&nbsp;new&nbsp;line,&nbsp;indent&nbsp;by&nbsp;the&nbsp;number&nbsp;indicated&nbsp;in&nbsp;$this-&gt;parents,&nbsp;add&nbsp;a&nbsp;&lt;,&nbsp;and&nbsp;add&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;tag</font></div></li>
+<li><div class="src-line"><a name="a350"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$out&nbsp;</strong>=&nbsp;<font color="#66cccc">&quot;\n&quot;</font>.<a href="http://www.php.net/str_repeat">str_repeat</a><strong>(</strong><font color="#66cccc">&quot;\t&quot;</font><strong>,&nbsp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagParents">tagParents</a><strong>)</strong>.<font color="#66cccc">'&lt;'</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagName">tagName</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a351"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a352"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//For&nbsp;each&nbsp;attribute,&nbsp;add&nbsp;attr=&quot;value&quot;</font></div></li>
+<li><div class="src-line"><a name="a353"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">foreach</font><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagAttrs">tagAttrs</a>&nbsp;as&nbsp;<strong>$attr&nbsp;</strong>=&gt;&nbsp;<strong>$value</strong><strong>)</strong></div></li>
+<li><div class="src-line"><a name="a354"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$out&nbsp;</strong>.=&nbsp;<font color="#66cccc">'&nbsp;'</font>.<strong>$attr</strong>.<font color="#66cccc">'=&quot;'</font>.<strong>$value</strong>.<font color="#66cccc">'&quot;'</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a355"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a356"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//If&nbsp;there&nbsp;are&nbsp;no&nbsp;children&nbsp;and&nbsp;it&nbsp;contains&nbsp;no&nbsp;data,&nbsp;end&nbsp;it&nbsp;off&nbsp;with&nbsp;a&nbsp;/&gt;</font></div></li>
+<li><div class="src-line"><a name="a357"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font><strong>(</strong>empty<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagChildren">tagChildren</a><strong>)&nbsp;</strong>&amp;&amp;&nbsp;empty<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagData">tagData</a><strong>))</strong></div></li>
+<li><div class="src-line"><a name="a358"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$out&nbsp;</strong>.=&nbsp;<font color="#66cccc">&quot;&nbsp;/&gt;&quot;</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a359"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a360"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Otherwise...</font></div></li>
+<li><div class="src-line"><a name="a361"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</div></li>
+<li><div class="src-line"><a name="a362"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{&nbsp;&nbsp;&nbsp;&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a363"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//If&nbsp;there&nbsp;are&nbsp;children</font></div></li>
+<li><div class="src-line"><a name="a364"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font><strong>(</strong><strong>!</strong>empty<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagChildren">tagChildren</a><strong>))</strong></div></li>
+<li><div class="src-line"><a name="a365"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a366"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Close&nbsp;off&nbsp;the&nbsp;start&nbsp;tag</font></div></li>
+<li><div class="src-line"><a name="a367"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$out&nbsp;</strong>.=&nbsp;<font color="#66cccc">'&gt;'</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a368"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a369"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//For&nbsp;each&nbsp;child,&nbsp;call&nbsp;the&nbsp;GetXML&nbsp;function&nbsp;(this&nbsp;will&nbsp;ensure&nbsp;that&nbsp;all&nbsp;children&nbsp;are&nbsp;added&nbsp;recursively)</font></div></li>
+<li><div class="src-line"><a name="a370"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">foreach</font><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagChildren">tagChildren</a>&nbsp;as&nbsp;<strong>$child</strong><strong>)</strong></div></li>
+<li><div class="src-line"><a name="a371"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$out&nbsp;</strong>.=&nbsp;<strong>$child</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#methodGetXML">GetXML</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a372"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a373"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Add&nbsp;the&nbsp;newline&nbsp;and&nbsp;indentation&nbsp;to&nbsp;go&nbsp;along&nbsp;with&nbsp;the&nbsp;close&nbsp;tag</font></div></li>
+<li><div class="src-line"><a name="a374"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$out&nbsp;</strong>.=&nbsp;<font color="#66cccc">&quot;\n&quot;</font>.<a href="http://www.php.net/str_repeat">str_repeat</a><strong>(</strong><font color="#66cccc">&quot;\t&quot;</font><strong>,&nbsp;</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagParents">tagParents</a><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a375"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a376"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a377"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//If&nbsp;there&nbsp;is&nbsp;data,&nbsp;close&nbsp;off&nbsp;the&nbsp;start&nbsp;tag&nbsp;and&nbsp;add&nbsp;the&nbsp;data</font></div></li>
+<li><div class="src-line"><a name="a378"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elseif<strong>(</strong><strong>!</strong>empty<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagData">tagData</a><strong>))</strong></div></li>
+<li><div class="src-line"><a name="a379"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$out&nbsp;</strong>.=&nbsp;<font color="#66cccc">'&gt;'</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagData">tagData</a><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a380"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a381"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Add&nbsp;the&nbsp;end&nbsp;tag&nbsp;&nbsp;&nbsp;&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a382"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$out&nbsp;</strong>.=&nbsp;<font color="#66cccc">'&lt;/'</font>.<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagName">tagName</a>.<font color="#66cccc">'&gt;'</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a383"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a384"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a385"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Return&nbsp;the&nbsp;final&nbsp;output</font></div></li>
+<li><div class="src-line"><a name="a386"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">return&nbsp;</font><strong>$out</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a387"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a388"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a389"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a390"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Deletes&nbsp;this&nbsp;tag's&nbsp;child&nbsp;with&nbsp;a&nbsp;name&nbsp;of&nbsp;$childName&nbsp;and&nbsp;an&nbsp;index</font></div></li>
+<li><div class="src-line"><a name="a391"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;of&nbsp;$childIndex</font></div></li>
+<li><div class="src-line"><a name="a392"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a393"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>string&nbsp;</em><strong>$childName&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a394"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@param&nbsp;</font></strong><em>int&nbsp;</em><strong>$childIndex&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a395"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a396"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/XMLTag.html#methodDelete">Delete</a><strong>(</strong><strong>$childName</strong><strong>,&nbsp;</strong><strong>$childIndex&nbsp;</strong>=&nbsp;0<strong>)</strong></div></li>
+<li><div class="src-line"><a name="a397"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a398"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Delete&nbsp;all&nbsp;of&nbsp;the&nbsp;children&nbsp;of&nbsp;that&nbsp;child</font></div></li>
+<li><div class="src-line"><a name="a399"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><strong>{</strong><strong>$childName</strong><strong>}</strong><strong>[</strong><strong>$childIndex</strong><strong>]</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#methodDeleteChildren">DeleteChildren</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a400"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a401"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Destroy&nbsp;the&nbsp;child's&nbsp;value</font></div></li>
+<li><div class="src-line"><a name="a402"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><strong>{</strong><strong>$childName</strong><strong>}</strong><strong>[</strong><strong>$childIndex</strong><strong>]&nbsp;</strong>=&nbsp;null<strong>;</strong></div></li>
+<li><div class="src-line"><a name="a403"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a404"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Remove&nbsp;the&nbsp;child's&nbsp;name&nbsp;from&nbsp;the&nbsp;named&nbsp;array</font></div></li>
+<li><div class="src-line"><a name="a405"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><strong>{</strong><strong>$childName</strong><strong>}</strong><strong>[</strong><strong>$childIndex</strong><strong>]</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a406"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a407"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Loop&nbsp;through&nbsp;the&nbsp;tagChildren&nbsp;array&nbsp;and&nbsp;remove&nbsp;any&nbsp;null</font></div></li>
+<li><div class="src-line"><a name="a408"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//values&nbsp;left&nbsp;behind&nbsp;from&nbsp;the&nbsp;above&nbsp;operation</font></div></li>
+<li><div class="src-line"><a name="a409"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">for</font><strong>(</strong><strong>$x&nbsp;</strong>=&nbsp;0<strong>;&nbsp;</strong><strong>$x&nbsp;</strong>&lt;&nbsp;<a href="http://www.php.net/count">count</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagChildren">tagChildren</a><strong>)</strong><strong>;&nbsp;</strong><strong>$x&nbsp;</strong>++<strong>)</strong></div></li>
+<li><div class="src-line"><a name="a410"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a411"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font><strong>(</strong><a href="http://www.php.net/is_null">is_null</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagChildren">tagChildren</a><strong>[</strong><strong>$x</strong><strong>]</strong><strong>))</strong></div></li>
+<li><div class="src-line"><a name="a412"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagChildren">tagChildren</a><strong>[</strong><strong>$x</strong><strong>]</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a413"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a414"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a415"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a416"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a417"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Removes&nbsp;all&nbsp;of&nbsp;the&nbsp;children&nbsp;of&nbsp;this&nbsp;tag&nbsp;in&nbsp;both&nbsp;name&nbsp;and&nbsp;value</font></div></li>
+<li><div class="src-line"><a name="a418"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a419"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">private&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/XMLTag.html#methodDeleteChildren">DeleteChildren</a><strong>(</strong><strong>)</strong></div></li>
+<li><div class="src-line"><a name="a420"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a421"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Loop&nbsp;through&nbsp;all&nbsp;child&nbsp;tags</font></div></li>
+<li><div class="src-line"><a name="a422"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">for</font><strong>(</strong><strong>$x&nbsp;</strong>=&nbsp;0<strong>;&nbsp;</strong><strong>$x&nbsp;</strong>&lt;&nbsp;<a href="http://www.php.net/count">count</a><strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagChildren">tagChildren</a><strong>)</strong><strong>;&nbsp;</strong><strong>$x&nbsp;</strong>++<strong>)</strong></div></li>
+<li><div class="src-line"><a name="a423"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>{</strong></div></li>
+<li><div class="src-line"><a name="a424"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Do&nbsp;this&nbsp;recursively</font></div></li>
+<li><div class="src-line"><a name="a425"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagChildren">tagChildren</a><strong>[</strong><strong>$x</strong><strong>]</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#methodDeleteChildren">DeleteChildren</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a426"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a427"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//Delete&nbsp;the&nbsp;name&nbsp;and&nbsp;value</font></div></li>
+<li><div class="src-line"><a name="a428"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagChildren">tagChildren</a><strong>[</strong><strong>$x</strong><strong>]&nbsp;</strong>=&nbsp;null<strong>;</strong></div></li>
+<li><div class="src-line"><a name="a429"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unset<strong>(</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/XMLTag.html#var$tagChildren">tagChildren</a><strong>[</strong><strong>$x</strong><strong>]</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a430"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a431"></a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a432"></a><strong>}</strong></div></li>
+</ol></div>
+</div>
+	<div id="credit">
+		<hr />
+		Documentation generated on Thu, 05 May 2011 14:05:59 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</div>
+</body>
+</html>

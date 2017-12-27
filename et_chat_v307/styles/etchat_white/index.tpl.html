@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+	<title>ET-Chat v3.0.7 - Login</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+  <script src="js/prototype.js" type="text/javascript"></script>
+  <script src="js/scriptaculous.js" type="text/javascript"></script>
+  <script src="js/login.js"  type="text/javascript"></script>
+  <link href="styles/<?php echo $_SESSION['etchat_'.$this->_prefix.'style']; ?>/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body id="body">
+
+  <div id="box">
+  	<div id="ueberschrift"><b>ET-Chat v3.0.7</b></div>
+  	<div id="inhalt">
+  <br />
+
+  <form id="login" action="">
+
+  <input type="hidden" name="<?php echo $_SESSION[$this->_prefix.'set_check']; ?>" value="<?php echo $this->aktuell_date_u; ?>" />
+
+  <?php echo $this->lang->name[0]->tagData; ?><br />
+  <input type="text" name="username" id="username" value="" maxlength="100" />
+  <br />
+  <br />
+  <div id="lay_pw" style="display:none">
+  <?php echo $this->lang->pw[0]->tagData; ?><br />
+  <input type="password" name="pw" value="" id="pw" /><br /><br />
+  </div>
+  <div id="lay_invisible" style="display:none">
+  <input type="checkbox" name="status_invisible" value="1" /> <?php echo $this->lang->invisible[0]->tagData; ?> <br /><br />
+  </div>
+  <div id="lay_gender">
+  <?php echo $this->lang->gender[0]->tagData; ?>  <br />
+  <select id="gender" name="gender" size="1">
+  <option value="n"><?php echo $this->lang->sex[0]->tagData; ?></option>
+  <option value="m"><?php echo $this->lang->sex[1]->tagData; ?></option>
+  <option value="f"><?php echo $this->lang->sex[2]->tagData; ?></option>
+  </select>
+  <br /><br /></div>
+  <input type="submit" id="submit_button" name="go" value="<?php echo $this->lang->submit[0]->tagData; ?>" />
+
+  </form>
+  <br /><br />
+  	</div>
+  </div>
+  <span id="copyright">&lt;<a href="http://www.sedesign.de" target="_blank">SEDesign</a> /&gt; &copy; <?php echo date('Y'); ?></span>
+
+</body>
+</html>

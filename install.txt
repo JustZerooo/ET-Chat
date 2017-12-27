@@ -1,0 +1,45 @@
+Installationsanweisung für ET-Chat v3.x.x
+-----------------------------------------
+
+Technische Voraussetzungen
+
+Server:
+- Apache, IIS
+- PHP >= 5.1
+	+ PDO or MySQLi Extension
+
+- MySQL >= 4.1 oder PostgreSQL >= 8
+ 
+
+Browser:
+- IE >= 6
+- Firefox >= 1.5
+- Safari
+- Opera >= 9
+
+
+Installation
+-------------
+
+* Entpacken Sie die et_chat_v3xx.zip auf Ihrem PC
+
+* Öffnen Sie mit einem Editor (Notepad, Wordpad, etc.) die Datei config.php im Chatverzeichnis
+
+* Geben Sie die Parameter Ihrer Datenbankverbindung in die Variablen ein und wählen Sie die Datenbank
+  (Die Parameter Ihrer Datenbankverbindung erfahren Sie oft bei Ihrem Webspaceprovider)
+
+* Speichern Sie die config.php mit den von Ihnen gemachten Angaben
+
+* Uploaden Sie die den gesamten Verzeichnis \et_chat_v3XX\ auf Ihren Webserver 
+  (am besten in den Stammverzeichnis, sog. /root/)
+
+* [OPTIONAL] - Geben Sie dem Verz /smilies/ alle Rechte (CHMOD 777) und achten Sie darauf dass PHP auf Ihrem Webserver 
+  mit safe_mode=off läuft. Dies wird für die Smilies-Verwaltung PlugIn benötigt und ist daher optional. 
+
+* Im Browser geben Sie nun folgende URI ein: http://www.ihr_server.de/et_chat_v3XX/install/
+
+* Dort folgen Sie den Anweisungen
+
+* Ihre Datenbank sollte nun angelegt sein und der Standardbenutzer: Admin mit pass: admin ist eingerichtet
+
+* WICHTIG!: Nach der erfolgreichen Installation löschen Sie den Verzeichnis /install/ vom Webserver!

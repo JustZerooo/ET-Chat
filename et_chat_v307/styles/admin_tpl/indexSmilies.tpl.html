@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<head>
+	<title>Smilie</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="styles/<?php echo $_SESSION['etchat_'.$this->_prefix.'style']; ?>/style.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body id="adminbereich_body">
+<?php
+
+
+echo "<a href=\"./?AdminIndex\"><<< ".$lang->backlink[0]->tagData."</a>
+	<hr size=\"1\">";
+
+
+echo "<b>".$lang->title[0]->tagData."</b><br><br>".$lang->note[0]->tagData."<br><br>";
+echo "<a href=\"./?AdminCreateNewSmilies\">".$lang->smilie[0]->tagData."</a>";
+
+
+echo "<br>&nbsp;<br>";
+echo "<table cellspacing=\"1\" cellpadding=\"5\" style=\"border:1px solid black;\">";
+echo "<tr class=\"kopf\">";
+echo "<td >".$lang->pic[0]->tagData."</td>";
+echo "<td width=\"200\">".$lang->sign[0]->tagData."</td>";
+echo "<td width=\"100\">&nbsp;</td>";
+echo "<td width=\"100\">&nbsp;</td>";
+echo "</tr>";
+
+echo $print_smil_list;
+
+echo "</table>";
+echo"<br>";
+echo "<a href=\"./?AdminCreateNewSmilies\">".$lang->smilie[0]->tagData."</a>";
+
+?>
+</body>
+</html>

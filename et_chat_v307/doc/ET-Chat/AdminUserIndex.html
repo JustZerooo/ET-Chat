@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class AdminUserIndex</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><!-- Start of Class Data -->
+<h2>
+	Class AdminUserIndex
+</h2> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__adminAdminUserIndex.class.php.html#a14">14</a></span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+<a href="../ET-Chat/EtChatConfig.html">EtChatConfig</a>
+   |
+   --<a href="../ET-Chat/DbConectionMaker.html">DbConectionMaker</a>
+      |
+      --AdminUserIndex</pre>
+<p>
+	<b><i>Located in File: <a href="_admin---AdminUserIndex.class.php.html">/admin/AdminUserIndex.class.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>Class AdminUserIndex - Admin area</h5>
+<div class="desc"><p>LICENSE: CREATIVE COMMONS PUBLIC LICENSE  &quot;Namensnennung — Nicht-kommerziell 2.0&quot;</p></div>
+<ul>
+		<li><strong>version:</strong> - $3.0.6$</li>
+		<li><strong>copyright:</strong> - 2009 &lt;SEDesign /&gt;</li>
+		<li><strong>link:</strong> - <a href="http://www.sedesign.de/de_produkte_chat-v3.html">http://www.sedesign.de/de_produkte_chat-v3.html</a></li>
+		<li><strong>since:</strong> - File available since Alpha 1.0</li>
+		<li><strong>license:</strong> - <a href="http://creativecommons.org/licenses/by-nc/2.0/de/">http://creativecommons.org/licenses/by-nc/2.0/de/</a></li>
+	</ul>
+<br /><hr />
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+</div>
+<div class="tab-page" id="constantsTabpage">
+
+<h2 class="tab">Class Constants</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "constantsTabpage" ) );</script>
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#method__construct" title="details" class="method-name">__construct</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodinitTemplate" title="details" class="method-name">initTemplate</a>
+        (<span class="var-type"></span>&nbsp;<span class="var-name">$lang</span>, <span class="var-type">String</span>&nbsp;<span class="var-name">$print_user_list</span>, <span class="var-type"><a href="../ET-Chat/XMLParser.html">XMLParser</a></span>&nbsp;<span class="var-name">$lang,</span>)
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="method__construct" id="method__construct"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/Constructor.gif" border="0" /> <strong class="method">Constructor __construct</strong> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__adminAdminUserIndex.class.php.html#a27">27</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>__construct(
+)</strong></h4>
+
+<p><strong>Overrides :</strong> <a href="../ET-Chat/DbConectionMaker.html#method__construct">DbConectionMaker::__construct()</a> Constructor</p>
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Constructor</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - public</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/LangXml.html#methodgetLang">LangXml::getLang()</a> - parser method</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/LangXml.html">LangXml</a> - object creation</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodsqlSet">ConnectDB::sqlSet()</a></li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodsqlGet">ConnectDB::sqlGet()</a></li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodclose">ConnectDB::close()</a></li>
+		</ul>
+</div>
+<a name="methodinitTemplate" id="methodinitTemplate"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method initTemplate</strong> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__adminAdminUserIndex.class.php.html#a71">71</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>initTemplate(
+
+$lang, String
+$print_user_list, <a href="../ET-Chat/XMLParser.html">XMLParser</a>
+$lang,)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Initializer for template</h5>
+		<h4>Parameters</h4>
+	<ul>
+			<li><strong>String $print_user_list</strong>: </li>
+			<li><strong><a href="../ET-Chat/XMLParser.html">XMLParser</a> $lang,</strong>: Obj with the needed lang tag from XML lang-file</li>
+			<li><strong> $lang</strong>: </li>
+		</ul>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - private</li>
+		</ul>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script></div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../ET-Chat/DbConectionMaker.html">DbConectionMaker</a></h4>
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/DbConectionMaker.html#var$dbObj">DbConectionMaker::$dbObj</a></strong> - Database connection obj for all inherited classes
+	</h4> 
+			<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../ET-Chat/EtChatConfig.html">EtChatConfig</a></h4>
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_allowed_privates_in_chat_win">EtChatConfig::$_allowed_privates_in_chat_win</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_allowed_privates_in_separate_win">EtChatConfig::$_allowed_privates_in_separate_win</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_allow_nick_registration">EtChatConfig::$_allow_nick_registration</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_database">EtChatConfig::$_database</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_interval_for_inactivity">EtChatConfig::$_interval_for_inactivity</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_limit_logins_in_three_minutes">EtChatConfig::$_limit_logins_in_three_minutes</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_messages_shown_on_entrance">EtChatConfig::$_messages_shown_on_entrance</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_prefix">EtChatConfig::$_prefix</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_show_history_all_user">EtChatConfig::$_show_history_all_user</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_sqlhost">EtChatConfig::$_sqlhost</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_sqlpass">EtChatConfig::$_sqlpass</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_sqluser">EtChatConfig::$_sqluser</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_usedDatabase">EtChatConfig::$_usedDatabase</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_usedDatabaseExtension">EtChatConfig::$_usedDatabaseExtension</a></strong> - 
+	</h4> 
+		</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../ET-Chat/DbConectionMaker.html">DbConectionMaker</a></h4>
+				<h4>
+<img src="../media/images/Constructor.gif" border="0" /><strong class="method"> <a href="../ET-Chat/DbConectionMaker.html#method__construct">DbConectionMaker::__construct()</a></strong> - Constructor
+		</h4> 
+
+				<h4>
+<img src="../media/images/PublicMethod.gif" border="0" /><strong class="method"> <a href="../ET-Chat/DbConectionMaker.html#methodconfigTabData2Session">DbConectionMaker::configTabData2Session()</a></strong> - Sets the session vars in the chatsession from the etchat_config table  this function has only be run once at the beginning to get all needed params to the user session.
+		</h4> 
+
+				<br />
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../ET-Chat/EtChatConfig.html">EtChatConfig</a></h4>
+				<h4>
+<img src="../media/images/Constructor.gif" border="0" /><strong class="method"> <a href="../ET-Chat/EtChatConfig.html#method__construct">EtChatConfig::__construct()</a></strong> - Constructor
+		</h4> 
+
+				<br />
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Thu, 05 May 2011 14:05:54 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</div>
+</body>
+</html>

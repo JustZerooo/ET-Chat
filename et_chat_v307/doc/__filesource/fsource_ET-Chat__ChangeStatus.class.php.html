@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>File Source for ChangeStatus.class.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h1 align="center">Source for file ChangeStatus.class.php</h1>
+<p>Documentation is available at <a href="../ET-Chat/_ChangeStatus.class.php.html">ChangeStatus.class.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><strong>&lt;?php</strong></div></li>
+<li><div class="src-line"><a name="a2"></a><font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a3"></a><font color="#009999">&nbsp;*&nbsp;ChangeStatus&nbsp;for&nbsp;user&nbsp;blocking&nbsp;in&nbsp;the&nbsp;session</font></div></li>
+<li><div class="src-line"><a name="a4"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a5"></a><font color="#009999">&nbsp;*&nbsp;LICENSE:&nbsp;CREATIVE&nbsp;COMMONS&nbsp;PUBLIC&nbsp;LICENSE&nbsp;&nbsp;&quot;Namensnennung&nbsp;—&nbsp;Nicht-kommerziell&nbsp;2.0&quot;</font></div></li>
+<li><div class="src-line"><a name="a6"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a7"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@copyright</font></strong><font color="#009999">&nbsp;&nbsp;2009&nbsp;&lt;SEDesign&nbsp;/&gt;</font></div></li>
+<li><div class="src-line"><a name="a8"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@license</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;http://creativecommons.org/licenses/by-nc/2.0/de/</font></div></li>
+<li><div class="src-line"><a name="a9"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@version</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;$3.0.6$</font></div></li>
+<li><div class="src-line"><a name="a10"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@link</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.sedesign.de/de_produkte_chat-v3.html</font></div></li>
+<li><div class="src-line"><a name="a11"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@since</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File&nbsp;available&nbsp;since&nbsp;Alpha&nbsp;1.0</font></div></li>
+<li><div class="src-line"><a name="a12"></a><font color="#009999">&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a13"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a14"></a><font color="blue">class&nbsp;</font><a href="../ET-Chat/ChangeStatus.html">ChangeStatus</a>&nbsp;<font color="blue">extends&nbsp;</font><a href="../ET-Chat/DbConectionMaker.html">DbConectionMaker</a></div></li>
+<li><div class="src-line"><a name="a15"></a><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a16"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a17"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constructor</font></div></li>
+<li><div class="src-line"><a name="a18"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a19"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;ConnectDB::sqlSet()</font></div></li>
+<li><div class="src-line"><a name="a20"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;ConnectDB::close()</font></div></li>
+<li><div class="src-line"><a name="a21"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>void&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a22"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a23"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/ChangeStatus.html#method__construct">__construct</a>&nbsp;<strong>(</strong><strong>)</strong><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a24"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a25"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;call&nbsp;parent&nbsp;Constructor&nbsp;from&nbsp;class&nbsp;DbConectionMaker</font></div></li>
+<li><div class="src-line"><a name="a26"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent<strong>::</strong><a href="../ET-Chat/DbConectionMaker.html#method__construct">__construct</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a27"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/session_start">session_start</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a29"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a30"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;all&nbsp;documentc&nbsp;requested&nbsp;per&nbsp;AJAX&nbsp;should&nbsp;have&nbsp;this&nbsp;part&nbsp;to&nbsp;turn&nbsp;off&nbsp;the&nbsp;browser&nbsp;and&nbsp;proxy&nbsp;cache&nbsp;for&nbsp;any&nbsp;XHR&nbsp;request</font></div></li>
+<li><div class="src-line"><a name="a31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/header">header</a><strong>(</strong><font color="#66cccc">'Cache-Control:&nbsp;no-store,&nbsp;no-cache,&nbsp;must-revalidate,&nbsp;pre-check=0,&nbsp;post-check=0,&nbsp;max-age=0'</font><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a33"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;Test&nbsp;if&nbsp;this&nbsp;status&nbsp;is&nbsp;allowed&nbsp;to&nbsp;be&nbsp;used&nbsp;by&nbsp;this&nbsp;user</font></div></li>
+<li><div class="src-line"><a name="a34"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong><strong>!</strong><strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/ChangeStatus.html#methodcheckRightsOfStatus">checkRightsOfStatus</a><strong>(</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'img'</font><strong>]</strong><strong>))&nbsp;</strong><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a35"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$_POST</strong><strong>[</strong><font color="#66cccc">'img'</font><strong>]</strong>=<font color="#66cccc">&quot;&quot;</font><strong>;&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a36"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$_POST</strong><strong>[</strong><font color="#66cccc">'text'</font><strong>]</strong>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a37"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<font color="#66cccc">&quot;Not&nbsp;allowed&nbsp;operation.&quot;</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a38"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">return&nbsp;</font>false<strong>;</strong></div></li>
+<li><div class="src-line"><a name="a39"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line"><a name="a40"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a41"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;no&nbsp;image&nbsp;is&nbsp;just&nbsp;online&nbsp;status</font></div></li>
+<li><div class="src-line"><a name="a42"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font><strong>(</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'img'</font><strong>]</strong>==<font color="#66cccc">&quot;status_online&quot;</font><strong>)</strong><strong>{</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'img'</font><strong>]</strong>=<font color="#66cccc">&quot;&quot;</font><strong>;&nbsp;</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'text'</font><strong>]</strong>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong><strong>}</strong></div></li>
+<li><div class="src-line"><a name="a43"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a44"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;if&nbsp;the&nbsp;image&nbsp;is&nbsp;not&nbsp;on&nbsp;the&nbsp;server,&nbsp;and&nbsp;also&nbsp;to&nbsp;prevent&nbsp;the&nbsp;sql-injections</font></div></li>
+<li><div class="src-line"><a name="a45"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong><strong>!</strong>empty<strong>(</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'img'</font><strong>]</strong><strong>)&nbsp;</strong>&amp;&amp;&nbsp;<strong>!</strong><a href="http://www.php.net/file_exists">file_exists</a><strong>(</strong><font color="#66cccc">&quot;./img/&quot;</font>.<strong>$_POST</strong><strong>[</strong><font color="#66cccc">'img'</font><strong>]</strong>.<font color="#66cccc">&quot;.png&quot;</font><strong>))&nbsp;</strong><strong>{</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'img'</font><strong>]</strong>=<font color="#66cccc">&quot;&quot;</font><strong>;&nbsp;</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'text'</font><strong>]</strong>=<font color="#66cccc">&quot;&quot;</font><strong>;</strong><strong>}</strong></div></li>
+<li><div class="src-line"><a name="a46"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a47"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;change&nbsp;status&nbsp;in&nbsp;the&nbsp;session&nbsp;table</font></div></li>
+<li><div class="src-line"><a name="a48"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/DbConectionMaker.html#var$dbObj">dbObj</a><strong>-&gt;</strong>sqlSet<strong>(</strong><font color="#66cccc">&quot;</font><font color="#66cccc">UPDATE&nbsp;{<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_prefix">_prefix</a><strong>}</strong>etchat_useronline&nbsp;SET&nbsp;</div></li>
+<li><div class="src-line"><a name="a49"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;etchat_user_online_user_status_img&nbsp;=&nbsp;'</font><font color="#66cccc"><font color="#66cccc">"</font>.addslashes<strong>(</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'img'</font><strong>]</strong><strong>)</strong>.<font color="#66cccc">&quot;',</font></font></div></li>
+<li><div class="src-line"><a name="a50"></a></font><font color="#66cccc"><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;etchat_user_online_user_status_text&nbsp;=&nbsp;'&quot;</font>.addslashes<strong>(</strong>urldecode<strong>(</strong><strong>$_POST</strong><strong>[</strong><font color="#66cccc">'text'</font><strong>]</strong><strong>))</strong>.<font color="#66cccc">&quot;'</font></font></div></li>
+<li><div class="src-line"><a name="a51"></a></font><font color="#66cccc"><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WHERE&nbsp;etchat_onlineuser_fid&nbsp;=&nbsp;&quot;</font>.(int)<strong>$_SESSION</strong><strong>[</strong><font color="#66cccc">'etchat_'</font>.<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_prefix">_prefix</a>.<font color="#66cccc">'user_id'</font><strong>]</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a52"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a53"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;close&nbsp;DB&nbsp;connection</font></div></li>
+<li><div class="src-line"><a name="a54"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/DbConectionMaker.html#var$dbObj">dbObj</a><strong>-&gt;</strong>close<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a55"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a56"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<font color="#66cccc">&quot;1&quot;</font><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a57"></a>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#66cccc"><strong>}</strong></font></div></li>
+<li><div class="src-line"><a name="a58"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a59"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;/**</font></div></li>
+<li><div class="src-line"><a name="a60"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Test&nbsp;if&nbsp;this&nbsp;status&nbsp;is&nbsp;allowed&nbsp;to&nbsp;be&nbsp;used&nbsp;by&nbsp;this&nbsp;user</font></div></li>
+<li><div class="src-line"><a name="a61"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a62"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@uses&nbsp;LangXml&nbsp;object&nbsp;creation</font></div></li>
+<li><div class="src-line"><a name="a63"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@uses&nbsp;LangXml::getLang()&nbsp;parser&nbsp;method</font></div></li>
+<li><div class="src-line"><a name="a64"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;bool</font></div></li>
+<li><div class="src-line"><a name="a65"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a66"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">private</font>&nbsp;<font color="blue">function</font>&nbsp;checkRightsOfStatus<strong>(</strong><strong>$statusImagename</strong><strong>)</strong><strong>{</strong></font></div></li>
+<li><div class="src-line"><a name="a67"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a68"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;create&nbsp;new&nbsp;LangXml&nbsp;Object</font></font></div></li>
+<li><div class="src-line"><a name="a69"></a></font><font color="#66cccc"><font color="green"></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$langObj</strong>&nbsp;=&nbsp;new&nbsp;LangXml<strong>(</strong><strong>)</strong><strong>;</strong></font></div></li>
+<li><div class="src-line"><a name="a70"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$lang</strong>=<strong>$langObj</strong></font><strong>-&gt;</strong>getLang<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a71"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a72"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">foreach</font><strong>(</strong><strong>$lang</strong><strong>-&gt;</strong>chat_js<strong>[</strong>0<strong>]</strong><strong>-&gt;</strong>status&nbsp;as&nbsp;<strong>$status_value</strong><strong>)&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a73"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong><strong>$status_value</strong><strong>-&gt;</strong>tagAttrs<strong>[</strong><font color="#66cccc">'imagename'</font><strong>]</strong>==<strong>$statusImagename&nbsp;</strong>&amp;&amp;&nbsp;<strong>$status_value</strong><strong>-&gt;</strong>tagAttrs<strong>[</strong><font color="#66cccc">'rights'</font><strong>]</strong>!=<font color="#66cccc">'all'</font><strong>)&nbsp;&nbsp;&nbsp;&nbsp;</strong></div></li>
+<li><div class="src-line"><a name="a74"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$thisStatusImagenameRights</strong><strong>[</strong><strong>]</strong>=<strong>$status_value</strong><strong>-&gt;</strong>tagAttrs<strong>[</strong><font color="#66cccc">'rights'</font><strong>]</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a75"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a76"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong><strong>!</strong>is_array<strong>(</strong><strong>$thisStatusImagenameRights</strong><strong>))&nbsp;</strong><font color="blue">return&nbsp;</font>true<strong>;</strong></div></li>
+<li><div class="src-line"><a name="a77"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else</font><font color="#66cccc"><strong>{</strong></font></div></li>
+<li><div class="src-line"><a name="a78"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">if</font>&nbsp;<strong>(</strong>in_array<strong>(</strong><strong>$_SESSION</strong><strong>[</strong><font color="#66cccc">'etchat_'</font>.<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_prefix">_prefix</a>.<font color="#66cccc">'user_priv'</font><strong>]</strong><strong>,&nbsp;</strong><strong>$thisStatusImagenameRights</strong><strong>))&nbsp;</strong><font color="blue">return&nbsp;</font>true<strong>;</strong></div></li>
+<li><div class="src-line"><a name="a79"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;<font color="blue">return&nbsp;</font>false<strong>;</strong></div></li>
+<li><div class="src-line"><a name="a80"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#66cccc"><strong>}</strong></font></div></li>
+<li><div class="src-line"><a name="a81"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;<strong>}</strong></font></div></li>
+</ol></div>
+</div>
+	<div id="credit">
+		<hr />
+		Documentation generated on Thu, 05 May 2011 14:05:55 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</div>
+</body>
+</html>

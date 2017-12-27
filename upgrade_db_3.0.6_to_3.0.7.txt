@@ -1,0 +1,28 @@
+Um die ET-Chat v3.0.6 auf die v3.0.7 unter MySQL zu updaten ohne die DB Einstellungen und bereits 
+angelegte User zu verlieren, befolgen Sie bitte folgende Schritte:
+
+
+1) Ersetzen Sia alle Chatdateien Ihres alten ET-chat v3.0.6 durch die neuen aus diesem Paket.
+
+2) Löschen Sie das Install-Verzeichnis OHNE die Install-Routine auszuführen!
+
+3) Stellen Sie in der dbcon/config.inc.php die Parameter Ihrer bereits bestehenden MySQL DB.
+
+
+4) Über ein Datenbanansteuerungsprogramm, wie z.B. phpMyAdmin, führen Sie in Ihrer ChatDB diese 
+SQL-Zeilen aus. 
+(Beachten Sie das richtige Prefix aus der config.inc.php an den Tabellennamen zu setzen $prefix = "db1_";)
+
+-----------------------------------------------------------------------------------------------------------
+-- Prefix: 'db1_'
+
+ALTER TABLE db1_etchat_messages ADD etchat_user_ip varchar(20) DEFAULT NULL;
+
+ALTER TABLE db1_etchat_user ADD etchat_reg_timestamp timestamp NOT NULL DEFAULT '0000-00-00 00:00:00';
+
+ALTER TABLE db1_etchat_user ADD etchat_reg_ip varchar(20) DEFAULT NULL;
+
+-----------------------------------------------------------------------------------------------------------
+
+
+5) Der Chat ist nun auf Version v3.0.7 upgedatet und kann benutzt werden.

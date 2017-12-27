@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>File Source for Smileys.class.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h1 align="center">Source for file Smileys.class.php</h1>
+<p>Documentation is available at <a href="../ET-Chat/_Smileys.class.php.html">Smileys.class.php</a></p>
+<div class="src-code">
+<div class="src-code"><ol><li><div class="src-line"><a name="a1"></a><strong>&lt;?php</strong></div></li>
+<li><div class="src-line"><a name="a2"></a><font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a3"></a><font color="#009999">&nbsp;*&nbsp;Class&nbsp;Smileys,&nbsp;generate&nbsp;smiles&nbsp;list&nbsp;from&nbsp;db&nbsp;table</font></div></li>
+<li><div class="src-line"><a name="a4"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a5"></a><font color="#009999">&nbsp;*&nbsp;LICENSE:&nbsp;CREATIVE&nbsp;COMMONS&nbsp;PUBLIC&nbsp;LICENSE&nbsp;&nbsp;&quot;Namensnennung&nbsp;—&nbsp;Nicht-kommerziell&nbsp;2.0&quot;</font></div></li>
+<li><div class="src-line"><a name="a6"></a><font color="#009999">&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a7"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@copyright</font></strong><font color="#009999">&nbsp;&nbsp;2009&nbsp;&lt;SEDesign&nbsp;/&gt;</font></div></li>
+<li><div class="src-line"><a name="a8"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@license</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;http://creativecommons.org/licenses/by-nc/2.0/de/</font></div></li>
+<li><div class="src-line"><a name="a9"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@version</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;$3.0.6$</font></div></li>
+<li><div class="src-line"><a name="a10"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@link</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://www.sedesign.de/de_produkte_chat-v3.html</font></div></li>
+<li><div class="src-line"><a name="a11"></a><font color="#009999">&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@since</font></strong><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File&nbsp;available&nbsp;since&nbsp;Alpha&nbsp;1.0</font></div></li>
+<li><div class="src-line"><a name="a12"></a><font color="#009999">&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a13"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a14"></a><font color="blue">class&nbsp;</font><a href="../ET-Chat/Smileys.html">Smileys</a>&nbsp;<font color="blue">extends&nbsp;</font><a href="../ET-Chat/DbConectionMaker.html">DbConectionMaker</a></div></li>
+<li><div class="src-line"><a name="a15"></a><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a16"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="#009999">/**</font></div></li>
+<li><div class="src-line"><a name="a17"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Constructor</font></div></li>
+<li><div class="src-line"><a name="a18"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*</font></div></li>
+<li><div class="src-line"><a name="a19"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;ConnectDB::sqlGet()</font></div></li>
+<li><div class="src-line"><a name="a20"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@uses</font></strong><font color="#009999">&nbsp;ConnectDB::close()</font></div></li>
+<li><div class="src-line"><a name="a21"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;</font><strong><font color = "#0099FF">@return&nbsp;</font></strong><em>void&nbsp;</em></div></li>
+<li><div class="src-line"><a name="a22"></a><font color="#009999">&nbsp;&nbsp;&nbsp;&nbsp;*/</font></div></li>
+<li><div class="src-line"><a name="a23"></a>&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">public&nbsp;</font><font color="blue">function&nbsp;</font><a href="../ET-Chat/Smileys.html#method__construct">__construct</a>&nbsp;<strong>(</strong><strong>)</strong><strong>{</strong></div></li>
+<li><div class="src-line"><a name="a24"></a>&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a25"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;call&nbsp;parent&nbsp;Constructor&nbsp;from&nbsp;class&nbsp;DbConectionMaker</font></div></li>
+<li><div class="src-line"><a name="a26"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent<strong>::</strong><a href="../ET-Chat/DbConectionMaker.html#method__construct">__construct</a><strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a27"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a28"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;Disable&nbsp;Browser&nbsp;Chache</font></div></li>
+<li><div class="src-line"><a name="a29"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.php.net/header">header</a><strong>(</strong><font color="#66cccc">'Cache-Control:&nbsp;no-store,&nbsp;no-cache,&nbsp;must-revalidate,&nbsp;pre-check=0,&nbsp;post-check=0,&nbsp;max-age=0'</font><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a30"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></li>
+<li><div class="src-line"><a name="a31"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;get&nbsp;smileys&nbsp;from&nbsp;db</font></div></li>
+<li><div class="src-line"><a name="a32"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$smil_array</strong>=<strong>$this</strong><strong>-&gt;</strong><a href="../ET-Chat/DbConectionMaker.html#var$dbObj">dbObj</a><strong>-&gt;</strong>sqlGet<strong>(</strong><font color="#66cccc">&quot;</font><font color="#66cccc">SELECT&nbsp;etchat_smileys_sign,&nbsp;etchat_smileys_img&nbsp;FROM&nbsp;{<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/EtChatConfig.html#var$_prefix">_prefix</a><strong>}</strong>etchat_smileys</font><font color="#66cccc"><font color="#66cccc">"</font><strong>)</strong><strong>;</strong></font></div></li>
+<li><div class="src-line"><a name="a33"></a>&nbsp;</div></li>
+<li><div class="src-line"><a name="a34"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;create&nbsp;HTML&nbsp;List&nbsp;with&nbsp;smileys</font></font></div></li>
+<li><div class="src-line"><a name="a35"></a></font><font color="#66cccc"><font color="green"></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="blue">foreach</font>&nbsp;<strong>(</strong><strong>$smil_array</strong>&nbsp;as&nbsp;<strong>$smil</strong><strong>)</strong></font></div></li>
+<li><div class="src-line"><a name="a36"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<font color="#66cccc">&quot;&lt;img&nbsp;src=\&quot;&quot;</font>.<strong>$smil</strong><strong>[</strong>1<strong>]</strong>.<font color="#66cccc">&quot;\&quot;&nbsp;id=\&quot;&quot;</font>.<strong>$smil</strong><strong>[</strong>0<strong>]</strong>.<font color="#66cccc">&quot;\&quot;&nbsp;style=\&quot;cursor:pointer;\&quot;&gt;\n&quot;</font><strong>;</strong></font></div></li>
+<li><div class="src-line"><a name="a37"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></div></li>
+<li><div class="src-line"><a name="a38"></a></font><font color="#66cccc">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="green">//&nbsp;close&nbsp;DB&nbsp;connect</font></font></div></li>
+<li><div class="src-line"><a name="a39"></a></font><font color="#66cccc"><font color="green"></font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$this</strong></font><strong>-&gt;</strong><a href="../ET-Chat/DbConectionMaker.html#var$dbObj">dbObj</a><strong>-&gt;</strong>close<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line"><a name="a40"></a>&nbsp;&nbsp;&nbsp;&nbsp;</font><font color="#66cccc"><strong>}</strong></font></div></li>
+</ol></div>
+</div>
+	<div id="credit">
+		<hr />
+		Documentation generated on Thu, 05 May 2011 14:05:58 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</div>
+</body>
+</html>

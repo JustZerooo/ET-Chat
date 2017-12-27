@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs For Class DbConectionMaker</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><!-- Start of Class Data -->
+<h2>
+	Class DbConectionMaker
+</h2> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__DbConectionMaker.class.php.html#a14">14</a></span>)
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ));
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<pre>
+<a href="../ET-Chat/EtChatConfig.html">EtChatConfig</a>
+   |
+   --DbConectionMaker</pre>
+<p>
+	<b><i>Located in File: <a href="_DbConectionMaker.class.php.html">/DbConectionMaker.class.php</a></i></b><br>
+</p>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>Abstract Class DbConectionMaker, inherite a db-Object</h5>
+<div class="desc"><p>LICENSE: CREATIVE COMMONS PUBLIC LICENSE  &quot;Namensnennung — Nicht-kommerziell 2.0&quot;</p></div>
+<ul>
+		<li><strong>version:</strong> - $3.0.6$</li>
+		<li><strong>copyright:</strong> - 2009 &lt;SEDesign /&gt;</li>
+		<li><strong>link:</strong> - <a href="http://www.sedesign.de/de_produkte_chat-v3.html">http://www.sedesign.de/de_produkte_chat-v3.html</a></li>
+		<li><strong>abstract:</strong> - </li>
+		<li><strong>since:</strong> - File available since Alpha 1.0</li>
+		<li><strong>license:</strong> - <a href="http://creativecommons.org/licenses/by-nc/2.0/de/">http://creativecommons.org/licenses/by-nc/2.0/de/</a></li>
+	</ul>
+<br /><hr />
+<span class="type">Classes extended from DbConectionMaker:</span>
+ 		<dl>
+	<dt><a href="../ET-Chat/AdminBlacklistIndex.html">AdminBlacklistIndex</a></dt>
+		<dd>Class BlacklistIndex</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminCreateNewRoom.html">AdminCreateNewRoom</a></dt>
+		<dd>Class AdminCreateNewRoom</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminCreateNewUser.html">AdminCreateNewUser</a></dt>
+		<dd>Class AdminCreateNewUser - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminDeleteFromBlacklist.html">AdminDeleteFromBlacklist</a></dt>
+		<dd>Class DeleteFromBlacklist</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminDeleteRoom.html">AdminDeleteRoom</a></dt>
+		<dd>Class AdminDeleteRoom</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminDeleteSmilies.html">AdminDeleteSmilies</a></dt>
+		<dd>Class AdminDeleteSmilies - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminDelUserPriv.html">AdminDelUserPriv</a></dt>
+		<dd>Class AdminDelUserPriv - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminEditRoom.html">AdminEditRoom</a></dt>
+		<dd>Class RoomsIndex - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminEditUser.html">AdminEditUser</a></dt>
+		<dd>Class AdminEditUser - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminInsertSmilies.html">AdminInsertSmilies</a></dt>
+		<dd>Class AdminInsertSmilies - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminInsertUser.html">AdminInsertUser</a></dt>
+		<dd>Class AdminInsertUser - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminPropertyIndex.html">AdminPropertyIndex</a></dt>
+		<dd>Class PropertyIndex</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminRegUserEdit.html">AdminRegUserEdit</a></dt>
+		<dd>Class AdminRegUserEdit - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminRegUserIndex.html">AdminRegUserIndex</a></dt>
+		<dd>Class AdminRegUserIndex - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminRenameSmilies.html">AdminRenameSmilies</a></dt>
+		<dd>Class AdminRenameSmilies - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminRoomsIndex.html">AdminRoomsIndex</a></dt>
+		<dd>Class RoomsIndex - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminSmiliesIndex.html">AdminSmiliesIndex</a></dt>
+		<dd>Class AdminSmiliesIndex - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminUpdateConfigTab.html">AdminUpdateConfigTab</a></dt>
+		<dd>Class UpdateConfigTab</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminUpdateRoom.html">AdminUpdateRoom</a></dt>
+		<dd>Class AdminDeleteRoom</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminUpdateSmilies.html">AdminUpdateSmilies</a></dt>
+		<dd>Class AdminUpdateSmilies - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminUpdateUser.html">AdminUpdateUser</a></dt>
+		<dd>Class AdminUpdateUser - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminUserIndex.html">AdminUserIndex</a></dt>
+		<dd>Class AdminUserIndex - Admin area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AfterBlacklistInsertion.html">AfterBlacklistInsertion</a></dt>
+		<dd>Class AfterBlacklistInsertion, shows the page after the user is inserted into the blacklist</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AfterKicklistInsertion.html">AfterKicklistInsertion</a></dt>
+		<dd>Class AfterKicklistInsertion, shows the page after the user was kicked</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AfterSpamlistInsertion.html">AfterSpamlistInsertion</a></dt>
+		<dd>Class AfterSpamlistInsertion, shows the page after the user is inserted into the blacklist bavouse of spam</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/ChangePw.html">ChangePw</a></dt>
+		<dd>ChangePw, sets new Pw</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/ChangeStatus.html">ChangeStatus</a></dt>
+		<dd>ChangeStatus for user blocking in the session</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/CheckRoomPw.html">CheckRoomPw</a></dt>
+		<dd>CheckRoomPw, checks the PW for PW-protected rooms</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/CheckUserName.html">CheckUserName</a></dt>
+		<dd>Class CheckUserName, chat login class</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/History.html">History</a></dt>
+		<dd>Class History, shows the history of the chatmessages</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/HistoryExport.html">HistoryExport</a></dt>
+		<dd>Class HistoryExport, exports history of the chatmessages</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/Index.html">Index</a></dt>
+		<dd>Class Index, login page creator</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/Insert2Blacklist.html">Insert2Blacklist</a></dt>
+		<dd>Insert2Blacklist, insert the user to the Blacklist</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/InstallMake.html">InstallMake</a></dt>
+		<dd>Class InstallMake - Install area</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/Logout.html">Logout</a></dt>
+		<dd>Logout, class to logout any user</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/ReloaderMessages.html">ReloaderMessages</a></dt>
+		<dd>Class ReloaderMessages, the AJAX Request for getting and setting new messges,  pull session and more,</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/ReloaderUserOnline.html">ReloaderUserOnline</a></dt>
+		<dd>Class ReloaderUserOnline, generate userOnline-JSON</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/Smileys.html">Smileys</a></dt>
+		<dd>Class Smileys, generate smiles list from db table</dd>
+	</dl>
+	</p>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+
+<h2 class="tab">Class Variables</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="var-title">
+    <span class="var-type"><a href="../ET-Chat/ConnectDB.html">ConnectDB</a></span>
+    <a href="#var$dbObj" title="details" class="property"><strong>$dbObj</strong></a>
+</div>
+<hr />
+<a name="var$dbObj" id="var$dbObj"><!-- --></A>
+<div style="background='#eeeeee'">
+<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /> <strong class="property">$dbObj</strong> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__DbConectionMaker.class.php.html#a20">20</a></span>)
+ </h4>
+<h4>Data type : <a href="../ET-Chat/ConnectDB.html">ConnectDB</a></h4>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>Database connection obj for all inherited classes</h5>
+<ul>
+		<li><strong>access:</strong> - protected</li>
+	</ul>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+</div>
+<div class="tab-page" id="constantsTabpage">
+
+<h2 class="tab">Class Constants</h2>
+<!-- ============ VARIABLE DETAIL =========== -->
+<strong>Summary:</strong><br />
+<hr />
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "constantsTabpage" ) );</script>
+</div>
+<div class="tab-page" id="tabPage2">
+<h2 class="tab">Method Detail</h2>
+<!-- ============ METHOD DETAIL =========== -->
+<strong>Summary:</strong><br />
+<div class="method-summary">
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#method__construct" title="details" class="method-name">__construct</a>
+        ()
+        </div>
+    <div class="method-definition">
+            <span class="method-result">void</span>
+        <a href="#methodconfigTabData2Session" title="details" class="method-name">configTabData2Session</a>
+        ()
+        </div>
+</div>
+<hr />
+<A NAME='method_detail'></A>
+
+
+<a name="method__construct" id="method__construct"><!-- --></a>
+<div style="background='#ffffff'"><h4>
+<img src="../media/images/Constructor.gif" border="0" /> <strong class="method">Constructor __construct</strong> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__DbConectionMaker.class.php.html#a28">28</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>__construct(
+)</strong></h4>
+	<p>Overridden in child classes as:<br />
+		<dl>
+	<dt><a href="../ET-Chat/AdminBlacklistIndex.html#method__construct">AdminBlacklistIndex::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminCreateNewRoom.html#method__construct">AdminCreateNewRoom::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminCreateNewUser.html#method__construct">AdminCreateNewUser::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminDeleteFromBlacklist.html#method__construct">AdminDeleteFromBlacklist::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminDeleteRoom.html#method__construct">AdminDeleteRoom::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminDeleteSmilies.html#method__construct">AdminDeleteSmilies::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminDelUserPriv.html#method__construct">AdminDelUserPriv::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminEditRoom.html#method__construct">AdminEditRoom::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminEditUser.html#method__construct">AdminEditUser::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminInsertSmilies.html#method__construct">AdminInsertSmilies::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminInsertUser.html#method__construct">AdminInsertUser::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminPropertyIndex.html#method__construct">AdminPropertyIndex::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminRegUserEdit.html#method__construct">AdminRegUserEdit::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminRegUserIndex.html#method__construct">AdminRegUserIndex::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminRenameSmilies.html#method__construct">AdminRenameSmilies::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminRoomsIndex.html#method__construct">AdminRoomsIndex::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminSmiliesIndex.html#method__construct">AdminSmiliesIndex::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminUpdateConfigTab.html#method__construct">AdminUpdateConfigTab::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminUpdateRoom.html#method__construct">AdminUpdateRoom::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminUpdateSmilies.html#method__construct">AdminUpdateSmilies::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminUpdateUser.html#method__construct">AdminUpdateUser::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AdminUserIndex.html#method__construct">AdminUserIndex::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AfterBlacklistInsertion.html#method__construct">AfterBlacklistInsertion::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AfterKicklistInsertion.html#method__construct">AfterKicklistInsertion::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/AfterSpamlistInsertion.html#method__construct">AfterSpamlistInsertion::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/ChangePw.html#method__construct">ChangePw::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/ChangeStatus.html#method__construct">ChangeStatus::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/CheckRoomPw.html#method__construct">CheckRoomPw::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/CheckUserName.html#method__construct">CheckUserName::__construct()</a></dt>
+		<dd>Constructor, contains all once needed operations and steps to check the user, login him and s.o.</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/History.html#method__construct">History::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/HistoryExport.html#method__construct">HistoryExport::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/Index.html#method__construct">Index::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/Insert2Blacklist.html#method__construct">Insert2Blacklist::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/InstallMake.html#method__construct">InstallMake::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/Logout.html#method__construct">Logout::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/ReloaderMessages.html#method__construct">ReloaderMessages::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/ReloaderUserOnline.html#method__construct">ReloaderUserOnline::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+		<dl>
+	<dt><a href="../ET-Chat/Smileys.html#method__construct">Smileys::__construct()</a></dt>
+		<dd>Constructor</dd>
+	</dl>
+	</p>
+
+<p><strong>Overrides :</strong> <a href="../ET-Chat/EtChatConfig.html#method__construct">EtChatConfig::__construct()</a> Constructor</p>
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Constructor</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - protected</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html">ConnectDB</a> - object creation</li>
+		</ul>
+</div>
+<a name="methodconfigTabData2Session" id="methodconfigTabData2Session"><!-- --></a>
+<div style="background='#eeeeee'"><h4>
+<img src="../media/images/PublicMethod.gif" border="0" /> <strong class="method">Method configTabData2Session</strong> (line <span class="linenumber"><a href="../__filesource/fsource_ET-Chat__DbConectionMaker.class.php.html#a45">45</a></span>)
+ </h4> 
+<h4><i>void</i> <strong>configTabData2Session(
+)</strong></h4>
+
+	<!-- ========== Info from phpDoc block ========= -->
+<h5>Sets the session vars in the chatsession from the etchat_config table  this function has only be run once at the beginning to get all needed params to the user session.</h5>
+		
+	<h4>Info</h4>
+	<ul>
+			<li><strong>access</strong> - protected</li>
+			<li><strong>uses</strong> - <a href="../ET-Chat/ConnectDB.html#methodsqlGet">ConnectDB::sqlGet()</a></li>
+		</ul>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script></div>
+<div class="tab-page" id="iVars">
+<h2 class="tab">Inherited Variables</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iVars" ) );</script>
+<!-- =========== VAR INHERITED SUMMARY =========== -->
+<A NAME='var_inherited_summary'><!-- --></A>
+<h3>Inherited Class Variable Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../ET-Chat/EtChatConfig.html">EtChatConfig</a></h4>
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_allowed_privates_in_chat_win">EtChatConfig::$_allowed_privates_in_chat_win</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_allowed_privates_in_separate_win">EtChatConfig::$_allowed_privates_in_separate_win</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_allow_nick_registration">EtChatConfig::$_allow_nick_registration</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_database">EtChatConfig::$_database</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_interval_for_inactivity">EtChatConfig::$_interval_for_inactivity</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_limit_logins_in_three_minutes">EtChatConfig::$_limit_logins_in_three_minutes</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_messages_shown_on_entrance">EtChatConfig::$_messages_shown_on_entrance</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_prefix">EtChatConfig::$_prefix</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_show_history_all_user">EtChatConfig::$_show_history_all_user</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_sqlhost">EtChatConfig::$_sqlhost</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_sqlpass">EtChatConfig::$_sqlpass</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_sqluser">EtChatConfig::$_sqluser</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_usedDatabase">EtChatConfig::$_usedDatabase</a></strong> - 
+	</h4> 
+		<h4>
+<img src="../media/images/PublicProperty.gif" border="0" /><strong class="property"> <a href="../ET-Chat/EtChatConfig.html#var$_usedDatabaseExtension">EtChatConfig::$_usedDatabaseExtension</a></strong> - 
+	</h4> 
+		</div>
+<div class="tab-page" id="iMethods">
+<h2 class="tab">Inherited Methods</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "iMethods" ) );</script>
+<!-- =========== INHERITED METHOD SUMMARY =========== -->
+<A NAME='functions_inherited'><!-- --></A>
+<h3>Inherited Method Summary</h3>
+
+		<!-- =========== Summary =========== -->
+	<h4>Inherited From Class <a href="../ET-Chat/EtChatConfig.html">EtChatConfig</a></h4>
+				<h4>
+<img src="../media/images/Constructor.gif" border="0" /><strong class="method"> <a href="../ET-Chat/EtChatConfig.html#method__construct">EtChatConfig::__construct()</a></strong> - Constructor
+		</h4> 
+
+				<br />
+	</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Thu, 05 May 2011 14:05:55 +0000 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.3</a>
+	</div>
+</body>
+</html>

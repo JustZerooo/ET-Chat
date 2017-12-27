@@ -1,0 +1,368 @@
+/*
+Hier werden Textfarbe am Chatstart und Systemtextfarbe angegeben.
+Die Parameter werden mit PHO ausgelesen, deshalb bitte die Syntaxis beachten!
+---------------------
+Textfarbe:ffffff
+Systemfarbe:ffffff
+---------------------
+*/
+
+/* for index.php - Login */
+#body{
+	text-align:center; font-family:Verdana;sans-serif; background-color: #000000;
+	}
+#box{
+	border: 1px solid #ffffff; width: 200px; font-size: 14px; margin: 0px auto;
+	}
+#ueberschrift{
+	border-bottom: 1px solid #ffffff; background-color: #000000; color: white;
+	}
+#inhalt{
+	padding: 3px; font-size: 12px; background-color: #666666; color: white;
+	}
+#copyright{
+	font-size: 9px; color: white;
+	}
+#login{
+	display:inline;
+	}
+/* for chat.php*/
+table{
+font-size: 12px;
+}
+
+#body_id{
+	height: 100%;
+	margin: 0px auto;
+	}
+
+#rahmen_um_alles{
+	margin: 10px;
+}
+body{
+	background-color: black;
+}
+#kopf{
+	font-size: 12px;
+	font-family: sans-serif;
+	font-style: normal;
+	color:white;
+	padding: 2px;
+}
+#onlinelist{
+	padding: 5px;
+	background-color: #666666;
+	font-size: 12px;
+	font-family: sans-serif;
+	font-style: normal;
+	float: right;
+	color:white;
+	width: 200px;
+	border: 1px solid white;
+	height: 450px;
+	padding-bottom: 16px;
+	overflow: auto;
+}
+
+* html #splitpane {
+	margin-left: -2px;
+}
+#splitpane{
+	background-image:url('../../img/splitpane.png');
+	background-repeat:no-repeat;
+ 	background-position:center;
+	font-size: 8px;
+	font-family: sans-serif;
+	font-style: normal;
+	float: right;
+	color:white;
+	width: 8px;
+	margin: 1px;
+	height: 450px;
+	overflow: auto;
+	cursor:e-resize;
+}
+
+#chatinhalt{
+	padding: 5px;
+	border: 1px solid white;
+	background-color: #666666;
+	font-size: 12px;
+	font-family: sans-serif;
+	font-style: normal;
+	color: white;
+	/*margin-right:200px;*/
+	position:relative;
+	height: 450px;
+	overflow: auto;
+	padding: 5px;
+	padding-bottom: 16px;
+}
+#form{
+	background-color: #666666;
+	font-size: 12px;
+	font-family: sans-serif;
+	font-style: normal;
+	clear: both;
+	border: 1px solid white;
+	margin-top: 10px;
+	padding: 3px;
+    height: 46px;
+}
+#form_left{
+	position:relative;
+    float: left;
+}
+#form_right{
+	padding: 6px;
+	position:relative;
+	float: left;
+}
+
+#privat_messages{
+ position: absolute;
+ top: 100px;
+ left: 100px;
+ background-color: #cccccc;
+ border: 1px solid black;
+ padding: 5px;
+}
+
+.rooms{
+ background-color: #000000;
+ border: 1px solid #999999;
+ padding: 1px;
+ margin-bottom: 2px;
+ cursor:pointer
+
+}
+.rooms_not_allowed{
+ background-color: #3d3d3d;
+ border: 1px solid #999999;
+ padding: 1px;
+ color: #cccccc;
+ margin-bottom: 2px;
+ cursor:pointer
+
+}
+.privat_ausg_an{
+ background-color: #994444;
+ border: 1px solid #ffffff;
+}
+.privat_ausg_von{
+ background-color: #449944;
+ border: 1px solid #ffffff;
+}
+
+#close_privat{
+	cursor:pointer;
+	background-color: white;
+	font-size: 10px;
+	font-family: sans-serif;
+	font-style: normal;
+	border: 1px solid black;
+	padding-left:4px;
+	padding-right:4px;
+}
+#privat_anzeige{
+	padding-bottom: 3px;
+	color:white;
+	height: 18px;
+}
+#privat_modus{
+	font-size: 10px;
+}
+#close_privat{
+	color:black;
+}
+.privat_mesages_window{
+	height: 165px; 
+	padding:3px; 
+	border: 1px solid #eeeeee; 
+	overflow: auto;
+}
+.privat_win_button{
+	cursor:pointer; 
+	font-weight:bold;
+	border: 1px solid #ffffff;
+	width: 190px;
+	margin-top: 3px;
+	background-color: #000000;
+	text-align: center;
+}
+.colorpick{
+     font-size: 10px;
+     cursor:pointer;
+     border: 1px solid black;
+     width: 100%;
+}
+.dialog{
+	font-size: 8px;
+	font-family: sans-serif;
+	font-style: normal;
+}
+
+.img_button{
+	cursor:pointer;
+}
+#message{
+	background-color: #999999;
+	border: 1px solid white;
+}
+
+.private_message_field{
+	width:300px;
+	margin-top: 2px;
+	background-color: #999999;
+	border: 1px solid white;
+}
+
+a:link {font-family:Arial,serif; font-size:10pt; color:#ffffff; text-decoration:underline;}
+a:visited {font-family:Arial,serif;	font-size:10pt;	color:#ffffff; text-decoration:underline;}
+a:active {font-family:Arial,serif; font-size:10pt; color:#ffffff; text-decoration:underline;}
+a:hover {font-family:Arial,serif; font-size:10pt; color:#ffffff; text-decoration:none;}
+
+/*------------ for history -----------------------*/
+
+.kopf{ background-color:#111111; }
+.gerade{ background-color:#555555; }
+.ungerade{ background-color:#333333; }
+.privat_von{ background-color:#115511; }
+.privat_nach{ background-color:#551111; }
+
+
+/*------------ for adminbereich -----------------------*/
+#adminbereich_body{
+background-color:#666666;
+color:white;
+font-size: 12px;
+font-family: sans-serif;
+}
+#adminbereich_body a:link {font-family:Arial,serif; font-size:10pt; color:#ffffff; text-decoration:none;}
+#adminbereich_body a:visited {font-family:Arial,serif;	font-size:10pt;	color:#ffffff; text-decoration:none;}
+#adminbereich_body a:active {font-family:Arial,serif; font-size:10pt; color:#ffffff; text-decoration:underline;}
+#adminbereich_body a:hover {font-family:Arial,serif; font-size:10pt; color:#ffffff; text-decoration:underline;}
+/*---------------------------- for Window -------------------------*/
+.overlay_etchat_black {
+	background-color: #ffffff;
+	filter:alpha(opacity=60);
+	-moz-opacity: 0.6;
+	opacity: 0.6;
+}
+
+.etchat_black_nw {
+ border-left: 1px solid #ffffff;
+ border-top: 1px solid #ffffff;
+ border-bottom: 1px solid #ffffff;
+  width:10px;
+  height:18px;
+  background-color: #000000;
+}
+
+.etchat_black_n {
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  background-color: #000000;
+}
+
+.etchat_black_ne {
+ border-right: 1px solid #ffffff;
+ border-top: 1px solid #ffffff;
+ border-bottom: 1px solid #ffffff;
+  width:10px;
+  height:18px;
+  background-color: #000000;
+
+}
+
+.etchat_black_w {
+ border-left: 1px solid #ffffff;
+ width:10px;
+  background-color: #666666;
+}
+
+.etchat_black_e {
+  border-right: 1px solid #ffffff;
+  width:10px;
+  background-color: #666666;
+}
+
+.etchat_black_sw {
+ border-left: 1px solid #ffffff;
+ border-bottom: 1px solid #ffffff;
+  width:10px;
+  height:3px;
+  background-color: #666666;
+}
+
+.etchat_black_s  {
+height:3px;
+border-bottom: 1px solid #ffffff;
+background-color: #666666;
+}
+
+.etchat_black_se, .etchat_black_sizer {
+ border-right: 1px solid #ffffff;
+ border-bottom: 1px solid #ffffff;
+  width:10px;
+  height:3px;
+  background-color: #666666;
+}
+
+.etchat_black_sizer {
+	cursor:se-resize;
+}
+
+.etchat_black_close {
+	width: 23px;
+	height: 23px;
+	background: transparent url(button-close-focus.gif) no-repeat 0 0;
+	position:absolute;
+	top:0px;
+	right:11px;
+	cursor:pointer;
+	z-index:1000;
+}
+
+.etchat_black_minimize {
+	width: 23px;
+	height: 23px;
+	background: transparent url(button-min-focus.gif) no-repeat 0 0;
+	position:absolute;
+	top:0px;
+	right:55px;
+	cursor:pointer;
+	z-index:1000;
+}
+
+.etchat_black_maximize {
+	width: 23px;
+	height: 23px;
+	background: transparent url(button-max-focus.gif) no-repeat 0 0;
+	position:absolute;
+	top:0px;
+	right:33px;
+	cursor:pointer;
+	z-index:1000;
+}
+
+.etchat_black_title {
+	float:left;
+	height:14px;
+	font-family: Tahoma, Arial, sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	text-align:left;
+	margin-top:2px;
+	width:100%;
+	color:#dddddd;
+}
+
+.etchat_black_content {
+	padding-top:5px;
+	overflow:auto;
+	color: #ffffff;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	background:#666666;
+}
