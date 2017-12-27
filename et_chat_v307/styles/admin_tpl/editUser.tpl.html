@@ -1,26 +1,35 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de" lang="de">
+<html>
 <head>
-	<title>User Edit</title>
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link href="styles/<?php echo $_SESSION['etchat_'.$this->_prefix.'style']; ?>/style.css" rel="stylesheet" type="text/css"/>
+    <title>User Edit</title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <meta name="language" content="de" />
+    <meta name="audience" content="all" />
+    <meta name="cache-control" content="no-cache" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="pragma" content="no-cache" />
+    
+    <link href="styles/<?php echo $_SESSION['etchat_'.$this->_prefix.'style']; ?>/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body id="adminbereich_body">
+
 <?php
-	echo "<a href=\"./?AdminIndex\"><<< ".$lang->backlink[0]->tagData."</a>
-	<hr size=\"1\">";
-	echo "<form action=\"./?AdminUpdateUser\" method=\"post\">";
-	echo "<input type=\"hidden\" name=\"id\" value=\"".$feld[0][0]."\">";
-	echo $lang->name[0]->tagData."<br /><input type=\"text\" name=\"user\" value=\"".$feld[0][1]."\"><br />";
-	echo $lang->pw[0]->tagData."<br /><input type=\"text\" name=\"pw\" value=\"\"><br />".$lang->pw_note[0]->tagData;
-	echo "<br /><br />".$lang->priv[0]->tagData." <select name=\"priv\" size=\"1\">";
-	if ($feld[0][3]=="admin") echo "<option value=\"admin\" selected>Administrator";
-	else  echo "<option value=\"admin\">Administrator";
-	if ($feld[0][3]=="mod") echo "<option value=\"mod\" selected>Moderator";
-	else  echo "<option value=\"mod\">Moderator";
-	echo "</select><br /><br />";
-	echo "<input type=\"Submit\" name=\"\" value=\"".$lang->save[0]->tagData."\"><br /><br /><hr size=\"1\" /><br />".$lang->make_norm_user[0]->tagData."<br /><input type=\"Button\" name=\"\" value=\"".$lang->del_priv[0]->tagData."\" onClick=\"location.href='./?AdminDelUserPriv&id=".$feld[0][0]."&cs4rue=".$_SESSION['etchat_'.$this->_prefix.'CheckSum4RegUserEdit']."'\">";
+    echo "<a href=\"./?AdminIndex\"><<< ".$lang->backlink[0]->tagData."</a>
+    <hr size=\"1\">";
+    echo "<form action=\"./?AdminUpdateUser\" method=\"post\">";
+    echo "<input type=\"hidden\" name=\"id\" value=\"".$feld[0][0]."\">";
+    echo $lang->name[0]->tagData."<br /><input type=\"text\" name=\"user\" value=\"".$feld[0][1]."\"><br />";
+    echo $lang->pw[0]->tagData."<br /><input type=\"text\" name=\"pw\" value=\"\"><br />".$lang->pw_note[0]->tagData;
+    echo "<br /><br />".$lang->priv[0]->tagData." <select name=\"priv\" size=\"1\">";
+    if ($feld[0][3]=="admin") echo "<option value=\"admin\" selected>Administrator";
+    else  echo "<option value=\"admin\">Administrator";
+    if ($feld[0][3]=="mod") echo "<option value=\"mod\" selected>Moderator";
+    else  echo "<option value=\"mod\">Moderator";
+    echo "</select><br /><br />";
+    echo "<input type=\"Submit\" name=\"\" value=\"".$lang->save[0]->tagData."\"><br /><br /><hr size=\"1\" /><br />".$lang->make_norm_user[0]->tagData."<br /><input type=\"Button\" name=\"\" value=\"".$lang->del_priv[0]->tagData."\" onClick=\"location.href='./?AdminDelUserPriv&id=".$feld[0][0]."&cs4rue=".$_SESSION['etchat_'.$this->_prefix.'CheckSum4RegUserEdit']."'\">";
 ?>
+
 </body>
 </html>
